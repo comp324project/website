@@ -1,0 +1,13 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn.lock
+package-lock.json
+
+# Environment variables (API keys, database credentials)
+.env
+
+# Build and cache files
+dist/
+build/
+.cache/
