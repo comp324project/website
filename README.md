@@ -3,8 +3,9 @@
 See notes below for update messages.
 
 #### 📍 Adrian, 02-19
-I began working on the data store. There's a new folder for the DB connection files.
+I began working on the data store. There's a new folder for the cleaned data (csv and .py file).
 
+Files added:
 - job-data.py = data loading and cleaning
 - mongo-connect.py = script for connecting DB using python driver (empty right now, will be creating Atlas-MongoDB account under this gmail so everyone has access)
 - jobs_cleaned_02-19.csv = current version of data to import into MongoDB
