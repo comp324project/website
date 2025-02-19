@@ -1,3 +1,15 @@
+## Website Updates
+
+### Adrian, 02-19
+I began working on the data store. There's a new folder for the DB connection files.
+
+- job-data.py = data loading and cleaning
+- mongo-connect.py = script for connecting DB using python driver (empty right now, will be creating Atlas-MongoDB account under this gmail so everyone has access)
+- jobs_cleaned_02-19.csv = current version of data to import into MongoDB
+
+I also created the presentation under this account in Google Slides. It's titled "Dev Week Demo". I am claiming the slides for the Overview & Data Description. Feel free to add your name to the speaker notes if you want to claim/work on that slide for the presentation.
+
+### Myles, 02-15
 This is just a basic login and sign up page so far. I think we should plan out the homepage before we begin coding it.
 Feel free to change styles, layouts, design, etc if you think something else would work better.
 To launch the project:
