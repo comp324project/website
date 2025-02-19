@@ -1,6 +1,8 @@
 ## Website Updates
 
-### Adrian, 02-19
+See notes below for update messages.
+
+#### 📍 Adrian, 02-19
 I began working on the data store. There's a new folder for the DB connection files.
 
 - job-data.py = data loading and cleaning
@@ -9,7 +11,7 @@ I began working on the data store. There's a new folder for the DB connection fi
 
 I also created the presentation under this account in Google Slides. It's titled "Dev Week Demo". I am claiming the slides for the Overview & Data Description. Feel free to add your name to the speaker notes if you want to claim/work on that slide for the presentation.
 
-### Myles, 02-15
+#### 📍 Myles, 02-15
 This is just a basic login and sign up page so far. I think we should plan out the homepage before we begin coding it.
 Feel free to change styles, layouts, design, etc if you think something else would work better.
 To launch the project:
