@@ -9,6 +9,7 @@ Files added:
 - job-data.py = data loading and cleaning
 
 Data:
+[raw data - Kaggle](https://www.kaggle.com/datasets/arshkon/linkedin-job-postings)
 - jobs_cleaned_02-19.csv = current version of data to import into MongoDB
   - current cleaned file is ~400MB. This is too large to store on GitHub. I can either have a remote link to keep the full dataset (I've never done this & not sure how it would affect DB access/connection) OR we can decide to clean the data to narrow the scope to CS-related jobs. The dataset currently includes positions for like Walgreen's managers, but we could prune it down to just Data Science, CS, and Engineering jobs. This would get the dataset to under 100MB limit for storing on GitHub.
 
