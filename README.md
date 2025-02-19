@@ -7,8 +7,9 @@ I began working on the data store. There's a new folder for the cleaned data (cs
 
 Files added:
 - job-data.py = data loading and cleaning
-- mongo-connect.py = script for connecting DB using python driver (empty right now, will be creating Atlas-MongoDB account under this gmail so everyone has access)
 - jobs_cleaned_02-19.csv = current version of data to import into MongoDB
+
+Note: I've connected MongoDB with python as a driver before, so may need someone to hop on and assist with the database connection through JS since that's a new language for me. We can talk about this during our meeting this Friday. I will go ahead and create the Atlas account so we can work together on the connection.
 
 I also created the presentation under this account in Google Slides. It's titled "Dev Week Demo". I am claiming the slides for the Overview & Data Description. Feel free to add your name to the speaker notes if you want to claim/work on that slide for the presentation.
 
