@@ -1,0 +1,16 @@
+* {
+    
+}
+
+#login-box {
+    background: #A225C9;
+    background: -moz-linear-gradient(45deg, #A225C9 0%, #2388CB 50%, #144E75 100%);
+    background: -webkit-linear-gradient(45deg, #A225C9 0%, #2388CB 50%, #144E75 100%);
+    background: linear-gradient(45deg, #A225C9 0%, #2388CB 50%, #144E75 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    width: 400px;
+    height: 180px;
+}
