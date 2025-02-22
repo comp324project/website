@@ -6,9 +6,44 @@
         <link rel="stylesheet" href="/css/job-search-style.css">
     </head>
     <body>
+        <!--This sidebar will be on every page besides login/signup/account recovery-->
+        <nav id="sidebar" class="">
+            <ul>
+                <li>
+                    <span class="Logo">Appliqué</span>
+                    <!--onclick calls js function toggleSidebar to open/close nav sidebar-->
+                    <button id="sidebar-toggle" onclick=toggleSidebar()>
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </li>
+                <li>
+                    <i class="fa-solid fa-house"></i>
+                    <a href="home.html">Home</a>
+                </li>
+                <li class="active">
+                    <i class="fa-solid fa-plus"></i>
+                    <a href="job-search.html">New Resumé</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <a href="resumes.html">Dashboard</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-chart-column"></i>
+                    <a href = "job-analytics.html">Analytics</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-user"></i>
+                    <a href = "">Profile</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <a href="index.html">Log out</a>
+                </li>
+            </ul>
+        </nav>
         <main>
-            <nav></nav>
-            <seciton>
+            <seciton id="container">
                 <artcle id="about">
                     <h1>Apply Now</h1>
                     <p>Applique makes it easy to present your best self!</p>
@@ -39,5 +74,6 @@
                 </article>
             </seciton>
         </main>
+        <script src="..\js\main.js"></script>
     </body>
 </html>
