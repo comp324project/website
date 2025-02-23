@@ -8,7 +8,7 @@ function toggleSidebar(){
 ///BrightData API call
 const urlInputButton = document.getElementById("url-input-button");
 urlInputButton.addEventListener('click', async () => {
-    var input = document.getElementById("url-input-text");
+    let input = document.getElementById("url-input-text");
     input = input.value.trim();
     if (!input) {
         return;
