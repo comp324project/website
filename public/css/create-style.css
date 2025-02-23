@@ -13,7 +13,7 @@
     box-sizing: border-box;
     height: 100vh;
     width: max(150px, 20vw);
-    padding: 5px 1em;
+    padding: 5px;
     background-color: var(--base-color);
     border-right: 1px solid var(--accent-color);
 
@@ -26,6 +26,12 @@
 #sidebar.close {
     width:60px;
     padding: 5px;
+    .Logo{
+        display: none;
+    }
+    .text{
+        display: none;
+    }
     
 }
 #sidebar i, #sidebar a{
@@ -42,17 +48,26 @@
     display: flex;
     flex-direction: row;
     padding: 5px 1em;
-    color: var(--text-color);
-
+    gap: 5px;
 }
+/*Top of navbar*/
 #sidebar > ul > li:first-child{
     justify-content: flex-end;
+    fill:var(--accent-color);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     .Logo{
         font-weight: 700;
+        font-size: 1.25em;
+        justify-self: left;
+        padding: 8px;     
     }
 }
+#sidebar-toggle{
+    justify-self: right;
+}
 #sidebar > ul > li:last-child{
-    align-items: end;
+    align-items: flex-end;
 }
 #sidebar ul li:active{
     color: var(--accent-color);

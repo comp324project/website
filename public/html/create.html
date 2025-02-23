@@ -3,11 +3,11 @@
     <head>
         <!--Stylesheet for Font Awesome Icons-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-        <link rel="stylesheet" href="/css/job-search-style.css">
+        <link rel="stylesheet" href="/css/create-style.css">
     </head>
     <body>
         <!--This sidebar will be on every page besides login/signup/account recovery-->
-        <nav id="sidebar" class="">
+        <nav id="sidebar" class="close">
             <ul>
                 <li>
                     <span class="Logo">Appliqué</span>
@@ -16,33 +16,47 @@
                         <i class="fa-solid fa-bars"></i>
                     </button>
                 </li>
-                <li>
-                    <i class="fa-solid fa-house"></i>
-                    <a href="home.html">Home</a>
+                <li>  
+                    <a href="home.html">
+                        <i class="fa-solid fa-house fa-lg"></i>
+                        <span class="text">Home</span>
+                    </a>
                 </li>
                 <li class="active">
-                    <i class="fa-solid fa-plus"></i>
-                    <a href="job-search.html">New Resumé</a>
+                    
+                    <a href="job-search.html">
+                        <i class="fa-solid fa-plus fa-lg"></i>
+                        <span class="text">Create</span>
+                    </a>
                 </li>
                 <li>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <a href="resumes.html">Dashboard</a>
+                    <a href="resumes.html">
+                        <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+                        <span class='text'>Dashboard</span>
+                    </a>
                 </li>
                 <li>
-                    <i class="fa-solid fa-chart-column"></i>
-                    <a href = "job-analytics.html">Analytics</a>
+                    <a href = "job-analytics.html">
+                        <i class="fa-solid fa-chart-column fa-lg"></i>
+                        <span class='text'>Analytics</span>
+                    </a>
                 </li>
                 <li>
-                    <i class="fa-solid fa-user"></i>
-                    <a href = "">Profile</a>
+                    <a href = "profile.html">
+                        <i class="fa-solid fa-user fa-lg"></i>
+                        <span class='text'>Profile</span>
+                    </a>
                 </li>
-                <li>
-                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                    <a href="index.html">Log out</a>
+                <li>  
+                    <a href="index.html">
+                        <i class="fa-solid fa-arrow-right-from-bracket fa-lg fa-rotate-180"></i>
+                        <span class="text">Log out</span>
+                    </a>
                 </li>
             </ul>
         </nav>
         <main>
+            <!--Actual create page-->
             <seciton id="container">
                 <artcle id="about">
                     <h1>Apply Now</h1>
@@ -55,7 +69,7 @@
                         <i class="fa-brands fa-linkedin"></i>
                     </div>
                     <div id="url-input">
-                        <input type="text" placeholder="URL">
+                        <input type="text" id= "url-input-text" placeholder="URL">
                         <button id="url-input-button">
                             <i class="fa-solid fa-check"></i>
                         </button>
