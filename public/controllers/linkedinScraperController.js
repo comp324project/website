@@ -63,7 +63,7 @@ exports.monitorProgress = async (req, res, next) => {
             const data = await response.json();
             console.log(data);
             try {
-                const status = data[0].status || "unknown"; // Safely get the status
+                const status = data.status || "unknown"; // Safely get the status
                 console.log("Snapshot Status:", status);
                 if (status == "ready"){
                     next(); //call getJobPost
