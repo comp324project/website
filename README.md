@@ -2,6 +2,9 @@
 
 See notes below for update messages.
 
+#### 📍 Alex, 02-23
+Worked on css file, changing the background color and font styles. I think we should maybe reorganize the page and have things be more centered, but that's just an idea.
+
 #### 📍 Adrian, 02-19
 I began working on the data store. There's a new folder for the cleaned data (csv and .py file).
 
