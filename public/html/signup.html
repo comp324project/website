@@ -2,10 +2,11 @@
 <html>
     <head>
         <title>Sign Up</title>
-        <style rel="stylesheet" href="../css/sytle.css"></style>
+        <!-- Correct way to link to an external stylesheet -->
+        <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-        <script src = "../js/main.js"></script>
+        <script src="../js/main.js"></script>
         <nav></nav>
         <main>
             <section id="signup_box">
@@ -15,16 +16,16 @@
                 </div>
                 <div id="signup_box_input">
                     <input type="text" id="email" placeholder="Email" required>
-                    <input type = "text" id="username" placeholder="Username" required>
-                    <input type = "text" id="password" placeholder="Password" required>
-                    <input type = "text" id="confirm_password" placeholder="Re-Enter Password" required>
-                    <div id = "login_box_button">
+                    <input type="text" id="username" placeholder="Username" required>
+                    <input type="text" id="password" placeholder="Password" required>
+                    <input type="text" id="confirm_password" placeholder="Re-Enter Password" required>
+                    <div id="login_box_button">
                         <button id="login_button">LOGIN</button>
                     </div>
                 </div>
                 <div id="login-link">
                     <p>Already have an account? </p>
-                    <a href="/index.html">Login<link>
+                    <a href="/index.html">Login</a>
                 </div>
                 <div id="recovery-link">
                     <p>Forgot your username/password? Reset it now!</p>
