@@ -1,5 +1,14 @@
-* {
+body {
+    width: 850px;
+    margin: auto;
+    background: #365396;
+    font-size: 20px;
+    font-family: Georgia, "Times New Roman", Serif;
     
+}
+
+p {  font-size: 1.0em;
+    font-style: italic;
 }
 
 #login-box {
