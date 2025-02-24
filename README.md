@@ -2,6 +2,11 @@
 
 See notes below for update messages.
 
+#### 📍 Adrian, 02-24
+- MongoDB Atlas Cluster "Applique" is created. You can access through bookmarks & login is the same email/pw.
+- Historical data cleaned to CS-specific jobs.
+- .py and .csv both updated in /data
+
 #### 📍 Alyssa, 02-24
 Added HTML file for master resume input, implemented a way to add additional text field, and remove text field. As for now, the submit button only outputs the resume as is. Also added a JS file along it, called resume.js, which is used for buttons.
 
