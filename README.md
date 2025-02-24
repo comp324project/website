@@ -2,6 +2,10 @@
 
 See notes below for update messages.
 
+#### 📍 Garrett, 02-24
+- updated signup page. should traverse to master-resume on signup and respective pages for login and recover account.
+- created style sheet for signup, but I called it login-style so I might need to fix that
+
 #### 📍 Adrian, 02-24
 - MongoDB Atlas Cluster "Applique" is created. You can access through bookmarks & login is the same email/pw.
 - Historical data cleaned to CS-specific jobs.
