@@ -101,8 +101,19 @@ Impact on Web Application:
           etc.
 """
 
-## 5. Save cleaned data (02/19/2025)
-rawClean2.to_csv("/Users/areuschel/Desktop/COMP424/Resume/data/jobs_cleaned_02-19.csv")
+## 5. Clean to focus on CS-related job titles
+CS_jobs = ["analyst", "software", "ML", "engineer", "programmer", "scientist", "data", "frontend", "backend",
+           "UI", "UX", "IT", "database", "machine learning", "data science", "Java", "Javascript", "SQL",
+           "Developer", "Web", "interface", "security analyst", "cyber", "network", "systems", "AWS", "AI", 
+           "artificial intelligence", "swe", "computer", "business intelligence"]
+
+pattern = "|".join([f"\\b{word}\\b" for word in CS_jobs])  
+
+rawClean3 = rawClean2[rawClean2['title'].str.contains(pattern, case=False, na=False, regex=True)]
+
+
+## 6. Save cleaned data (02/24/2025)
+rawClean3.to_csv("/Users/areuschel/Desktop/COMP424/Resume/data/jobs_cleaned_02-24.csv")
 
 
 # Import libraries for DB connection
