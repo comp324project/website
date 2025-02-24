@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Input Form</title>
+    <script src="resume.js" defer></script>
+</head>
+<body>
+
+    <h2>Resume Input Form</h2>
+
+    <form>
+        <div class="section">
+            <label>Skills:</label>
+            <div id="skills">
+                <div><textarea name="skills"></textarea></div>
+            </div>
+            <div class="controls">
+                <button type="button" onclick="addField('skills')">+</button>
+                <button type="button" class="remove-button" onclick="removeField('skills')">-</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <label>Experience:</label>
+            <div id="experience">
+                <div><textarea name="experience"></textarea></div>
+            </div>
+            <div class="controls">
+                <button type="button" onclick="addField('experience')">+</button>
+                <button type="button" class="remove-button" onclick="removeField('experience')">-</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <label>Projects:</label>
+            <div id="projects">
+                <div><textarea name="projects"></textarea></div>
+            </div>
+            <div class="controls">
+                <button type="button" onclick="addField('projects')">+</button>
+                <button type="button" class="remove-button" onclick="removeField('projects')">-</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <label>Research:</label>
+            <div id="research">
+                <div><textarea name="research"></textarea></div>
+            </div>
+            <div class="controls">
+                <button type="button" onclick="addField('research')">+</button>
+                <button type="button" class="remove-button" onclick="removeField('research')">-</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <label>Volunteering:</label>
+            <div id="volunteering">
+                <div><textarea name="volunteering"></textarea></div>
+            </div>
+            <div class="controls">
+                <button type="button" onclick="addField('volunteering')">+</button>
+                <button type="button" class="remove-button" onclick="removeField('volunteering')">-</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <label>Education:</label>
+            <div id="education">
+                <div><textarea name="education"></textarea></div>
+            </div>
+            <div class="controls">
+                <button type="button" onclick="addField('education')">+</button>
+                <button type="button" class="remove-button" onclick="removeField('education')">-</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <label>References:</label>
+            <div id="references">
+                <div><textarea name="references"></textarea></div>
+            </div>
+            <div class="controls">
+                <button type="button" onclick="addField('references')">+</button>
+                <button type="button" class="remove-button" onclick="removeField('references')">-</button>
+            </div>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>
