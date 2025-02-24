@@ -2,6 +2,9 @@
 
 See notes below for update messages.
 
+#### 📍 Alyssa, 02-24
+Added HTML file for master resume input, implemented a way to add additional text field, and remove text field. As for now, the submit button only outputs the resume as is. Also added a JS file along it, called resume.js, which is used for buttons.
+
 #### 📍 Alex, 02-23
 Worked on css file, changing the background color and font styles. I think we should maybe reorganize the page and have things be more centered, but that's just an idea.
 
