@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #A6B8E9;
+}
+
+#signup_box_input {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+input {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: gray;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: not-allowed;
+    width: 100%;
+}
+
+    button.enabled {
+        background-color: #28a745;
+        cursor: pointer;
+    }
+
+        button.enabled:hover {
+            background-color: #218838;
+        }
+
+#error-message {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
