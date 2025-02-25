@@ -10,11 +10,13 @@
 }
 /* Interactive sidebar stylings */
 #sidebar{
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
     height: 100vh;
     width: max(150px, 20vw);
     padding: 5px;
-    background-color: var(--base-color);
+    background-color: var(--accent-color);
     border-right: 1px solid var(--accent-color);
 
     position: sticky;
@@ -24,20 +26,17 @@
     overflow: hidden;
 }
 #sidebar.close {
-    width:60px;
-    padding: 5px;
     .Logo{
         display: none;
     }
     .text{
         display: none;
     }
-    
+    width:min-content;
 }
 #sidebar i, #sidebar a{
     color: var(--text-color);
-    gap: 1em;
-    display:flex;
+    margin-top: 3px;
     align-items: center;
     justify-content: left;
 }
@@ -52,25 +51,37 @@
 }
 /*Top of navbar*/
 #sidebar > ul > li:first-child{
-    justify-content: flex-end;
+    flex-direction: row;
+    justify-content: space-between;
     fill:var(--accent-color);
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     .Logo{
         font-weight: 700;
         font-size: 1.25em;
-        justify-self: left;
+        justify-self: flex-start;
         padding: 8px;     
     }
 }
 #sidebar-toggle{
     justify-self: right;
 }
+/* Logout button placement*/
 #sidebar > ul > li:last-child{
-    align-items: flex-end;
+    align-self: flex-end;
 }
 #sidebar ul li:active{
     color: var(--accent-color);
+}
+.navItem{
+    display:flex;
+    flex-direction: column;
+    margin: 3px;
+    background-color: var(--accent-color);
+}
+.navItem .text{
+    color: var(--text-color);
+    text-decoration: none;
 }
 html{
     font-family: Poppins, Segoe UI, sans-serif;

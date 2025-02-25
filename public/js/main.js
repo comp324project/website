@@ -1,10 +1,14 @@
-const toggleButton = document.getElementById("sidebar-toggle")
 const sidebar = document.getElementById("sidebar")
 
-function toggleSidebar(){
-    sidebar.classList.toggle("close")
-}
+sidebar.addEventListener("mouseover", sidebarHover, false);
+sidebar.addEventListener("mouseout", sidebarHoverExit, false);
 
+function sidebarHover(){
+    sidebar.classList.remove('close');
+}
+function sidebarHoverExit(){
+    sidebar.classList.add('close');
+}
 ///BrightData API call
 const urlInputButton = document.getElementById("url-input-button");
 urlInputButton.addEventListener('click', async () => {
@@ -13,7 +17,6 @@ urlInputButton.addEventListener('click', async () => {
     if (!input) {
         return;
     }
-    console.log("URL: "+input);
     if (isLinkedInUrl(input)) {
         
         try {
@@ -50,12 +53,16 @@ urlInputButton.addEventListener('click', async () => {
             console.error('Error calling BrightData API:', error);
         }
     } else {
-        alert('Please enter a valid LinkedIn URL.');
+        alert('Please enter a valid job posting URL.');
     }
 });
 
 // Function to check if the URL is a LinkedIn URL
 function isLinkedInUrl(url) {
-    const linkedinPattern = /^(https?:\/\/)?(www\.)?linkedin\.com/;
-    return linkedinPattern.test(url);
+    const expected = "linkedin.com/jobs/view";
+    if (url.includes(expected)){
+        return true;
+    } else{
+        return false;
+    }
 }

@@ -48,7 +48,7 @@ exports.monitorProgress = async (req, res, next) => {
         console.error("Invalid snapshot_id:", snapshot_id);
         return null;
     }
-    const maxRetries = 15; // Max number of retries
+    const maxRetries = 10; // Max number of retries
     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms)); // Delay function
     for (let attempt = 1; attempt <= maxRetries; attempt++) {
         try{
