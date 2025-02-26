@@ -3,6 +3,9 @@ const csv = require('csv-parser');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const Job = require('../config/jobSchema'); 
+const path = require('path');
+const filePath = path.join(__dirname, 'public', 'data', 'jobs_cleaned_02-26.csv');
+
 
 dotenv.config(); 
 
@@ -14,7 +17,7 @@ mongoose.connect(process.env.MONGO_URI)
 const results = [];
 
 // Read CSV file
-fs.createReadStream(path.join(__dirname, 'jobs_cleaned_02-26.csv'))
+fs.createReadStream(filePath)
   .pipe(csv())
   .on('data', (data) => results.push(data))
   .on('end', async () => {
