@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const Job = require('../config/jobSchema'); 
 const path = require('path');
-const filePath = path.join(__dirname, 'public', 'data', 'jobs_cleaned_02-26.csv');
+const filePath = path.join(__dirname, 'jobs_cleaned_02-26.csv');
 
 
 dotenv.config(); 
