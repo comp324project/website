@@ -7,10 +7,7 @@ const Job = require('../config/jobSchema');
 dotenv.config(); 
 
 // connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('Connected to MongoDB for data import'))
   .catch((err) => console.error('Error connecting to MongoDB', err));
 
