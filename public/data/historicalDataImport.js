@@ -23,13 +23,13 @@ fs.createReadStream(path.join(__dirname, 'jobs_cleaned_02-26.csv'))
   .on('end', async () => {
     try {
       for (const job of results) {
-        const newJob = new Job(job); // Create a new job document from the data
-        await newJob.save(); // Save the document to MongoDB
+        const newJob = new Job(job); 
+        await newJob.save(); 
       }
       console.log('Historical job data imported successfully');
     } catch (err) {
       console.error('Error importing job data', err);
     } finally {
-      mongoose.connection.close(); // Close the MongoDB connection
+      mongoose.connection.close(); 
     }
   });
