@@ -1,0 +1,21 @@
+require('dotenv').config(); // load environment
+const mongoose = require('mongoose');
+
+// get db connection thru .env (contact Adri if need .env connection!)
+const mongoURI = process.env.MONGO_URI;
+
+const connectDB = async () => {
+    try {
+        await mongoose.connect(mongoURI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log('MongoDB Connected Successfully');
+    } catch (error) {
+        console.error('MongoDB Connection Error:', error);
+        process.exit(1); // Exit process if connection fails
+    }
+};
+
+// Export the function to use in other files
+module.exports = connectDB;
