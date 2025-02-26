@@ -7,6 +7,10 @@ const PORT = process.env.PORT;
 
 const bdRouter = require("./public/routes/brightDataRoutes"); // Import brightdata routes
 
+// Connection to MongoDB
+const connectDB = require('./public/models/db'); // Import DB connection
+connectDB(); 
+
 // Middleware to parse json
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
