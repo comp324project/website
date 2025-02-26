@@ -112,8 +112,14 @@ pattern = "|".join([f"\\b{word}\\b" for word in CS_jobs])
 rawClean3 = rawClean2[rawClean2['title'].str.contains(pattern, case=False, na=False, regex=True)]
 
 
-## 6. Save cleaned data (02/24/2025)
-rawClean3.to_csv("/Users/areuschel/Desktop/COMP424/Resume/data/jobs_cleaned_02-24.csv")
+## 6. Simplify for Job Schema
+rawClean4 = rawClean3.drop(columns=['job_id', 'max_salary', 'pay_period', 'company_id', 'min_salary', 
+                                    'formatted_work_type', 'remote_allowed', 'formatted_experience_level',
+                                    'sponsored','work_type', 'normalized_salary'])
+
+
+## 7. Save cleaned data (02/26/2025)
+rawClean3.to_csv("/Users/areuschel/Desktop/COMP424/Resume/data/jobs_cleaned_02-26.csv")
 
 
 # Import libraries for DB connection
