@@ -19,7 +19,10 @@ const results = [];
 // Read CSV file
 fs.createReadStream(filePath)
   .pipe(csv())
-  .on('data', (data) => results.push(data))
+  .on('data', (data) => {
+    console.log('Reading data row:', data);  // Log each row of data being read
+    results.push(data);
+  })
   .on('end', async () => {
     try {
       for (const job of results) {
