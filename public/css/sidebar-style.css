@@ -1,0 +1,88 @@
+/* Interactive sidebar stylings */
+* {
+    padding:0px;
+    margin:0px;
+    font-family: Helvetica, sans-serif;
+    font-size: 13pt;
+    color: var(--text-color);
+}
+:root{
+    --base-color:rgb(238, 234, 248);
+    --accent-color: #644bf3;
+    --text-color: #27213a;
+    --input-color:#e7e2fa;
+}
+#sidebar{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100vh;
+    width: max(150px, 20vw);
+    padding: 5px;
+    background-color: var(--accent-color);
+    border-right: 1px solid var(--accent-color);
+
+    position: sticky;
+    top: 0;
+    align-self: start;
+    transition: 300ms ease-in-out;
+    overflow: hidden;
+}
+#sidebar.close {
+    .Logo{
+        display: none;
+    }
+    .text{
+        display: none;
+    }
+    width:min-content;
+}
+#sidebar i, #sidebar a{
+    color: var(--text-color);
+    margin-top: 3px;
+    align-items: center;
+    justify-content: left;
+}
+#sidebar ul{
+    list-style: none;
+}
+#sidebar ul li{
+    display: flex;
+    flex-direction: row;
+    padding: 5px 1em;
+    gap: 5px;
+}
+/*Top of navbar*/
+#sidebar > ul > li:first-child{
+    flex-direction: row;
+    justify-content: space-between;
+    fill:var(--accent-color);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    .Logo{
+        font-weight: 700;
+        font-size: 1.25em;
+        justify-self: flex-start;
+        padding: 8px;     
+    }
+}
+#sidebar-toggle{
+    justify-self: right;
+}
+/* Logout button placement*/
+#sidebar > ul > li:last-child{
+    align-self: flex-end;
+}
+#sidebar ul li:active{
+    color: var(--accent-color);
+}
+.navItem{
+    display:flex;
+    flex-direction: column;
+    margin: 3px;
+    background-color: var(--accent-color);
+}
+.navItem .text{
+    color: var(--text-color);
+    text-decoration: none;
+}

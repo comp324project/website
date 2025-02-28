@@ -1,3 +1,15 @@
+//Sidebar functionality
+const sidebar = document.getElementById("sidebar")
+
+sidebar.addEventListener("mouseover", sidebarHover, false);
+sidebar.addEventListener("mouseout", sidebarHoverExit, false);
+
+function sidebarHover(){
+    sidebar.classList.remove('close');
+}
+function sidebarHoverExit(){
+    sidebar.classList.add('close');
+}
 // Function to add a new text field
 function addField(sectionId) {
     const section = document.getElementById(sectionId);

@@ -1,4 +1,5 @@
-const User = require("../models/User");
+const User = require("../models/user");
+const Mongo = require("./mongo")
 const bcrypt = require("bcrypt");
 
 // Example User Registration using User schema
@@ -6,7 +7,7 @@ exports.registerUser = async (req, res) => {
     try {
         const { username, email, password } = req.body;
         
-        // We are gonna have to encrypt passwords
+        // It is best preactice to store encrypted passwords
         const hashedPassword = await bcrypt.hash(password, 10);
         
         // Creates new user

@@ -1,14 +1,3 @@
-* {
-    padding:0px;
-    margin:0px;
-}
-:root{
-    --base-color:rgb(238, 234, 248);
-    --accent-color: #644bf3;
-    --text-color: #27213a;
-    --input-color:#e7e2fa;
-}
-
 html{
     font-family: Poppins, Segoe UI, sans-serif;
     font-size: 13pt;

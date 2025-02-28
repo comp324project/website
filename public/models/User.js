@@ -1,10 +1,12 @@
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
-    username: { type: String, required: true, unique: true },
+    name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
-    password: { type: String, required: true }, // Should be hashed before storing
-    createdAt: { type: Date, default: Date.now }
-});
+    password: { type: String, required: true }, // Hashed password for security
+}, { timestamps: true }); //This enables Mongo-side creation and update timestamps -> SUPER USEFUL
 
-module.exports = mongoose.model("User", UserSchema);
+// Prevent OverwriteModelError
+const User = mongoose.models.User || mongoose.model("User", UserSchema);
+
+module.exports = User;

@@ -4,89 +4,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Input Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/master-resume-style.css">
+    <link rel="stylesheet" href="/css/sidebar-style.css">
 </head>
 <body>
-
+    <nav id="sidebar" class="close">
+        <ul>
+            <li>
+                <div class = 'Logo'>Appliqué</div>
+            </li>
+            <li>
+                <div class = 'navItem'>
+                    <a href="home.html">
+                        <i class="fa-solid fa-house fa-lg"></i>
+                        <span class="text">Home</span>
+                    </a>
+                </div>  
+            </li>
+            <li class="active">
+                <div class = 'navItem'>
+                    <a href="create.html">
+                        <i class="fa-solid fa-plus fa-lg"></i>
+                        <span class="text">Create</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="navItem">
+                    <a href="master-resume.html">
+                        <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+                        <span class='text'>Dashboard</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="navItem">
+                    <a href = "job-analytics.html">
+                        <i class="fa-solid fa-chart-column fa-lg"></i>
+                        <span class='text'>Analytics</span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="navItem">
+                    <a href = "profile.html">
+                        <i class="fa-solid fa-user fa-lg"></i>
+                        <span class='text'>Profile</span>
+                    </a>
+                </div>
+            </li>
+            <li>  
+                <div class="navItem">
+                    <a href="index.html">
+                        <i class="fa-solid fa-arrow-right-from-bracket fa-lg fa-rotate-180"></i>
+                        <span class="text">Log out</span>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </nav>
     <h2>Resume Input Form</h2>
-
     <form>
         <div class="section">
             <label>Skills:</label>
+            <div class="controls">
+                <button type="button" onclick="addField('skills')"><i class="fa-solid fa-square-plus"></i></button>
+                <button type="button" class="remove-button" onclick="removeField('skills')"><i class="fa-solid fa-square-minus"></i></button>
+            </div>
             <div id="skills">
                 <div><textarea name="skills"></textarea></div>
             </div>
-            <div class="controls">
-                <button type="button" onclick="addField('skills')">+</button>
-                <button type="button" class="remove-button" onclick="removeField('skills')">-</button>
-            </div>
         </div>
-
         <div class="section">
             <label>Experience:</label>
+            <div class="controls">
+                <button type="button" onclick="addField('experience')"><i class="fa-solid fa-square-plus"></i></button>
+                <button type="button" class="remove-button" onclick="removeField('experience')"><i class="fa-solid fa-square-minus"></i></button>
+            </div>
             <div id="experience">
                 <div><textarea name="experience"></textarea></div>
-            </div>
-            <div class="controls">
-                <button type="button" onclick="addField('experience')">+</button>
-                <button type="button" class="remove-button" onclick="removeField('experience')">-</button>
             </div>
         </div>
 
         <div class="section">
             <label>Projects:</label>
+            <div class="controls">
+                <button type="button" onclick="addField('projects')"><i class="fa-solid fa-square-plus"></i></button>
+                <button type="button" class="remove-button" onclick="removeField('projects')"><i class="fa-solid fa-square-minus"></i></button>
+            </div>
             <div id="projects">
                 <div><textarea name="projects"></textarea></div>
-            </div>
-            <div class="controls">
-                <button type="button" onclick="addField('projects')">+</button>
-                <button type="button" class="remove-button" onclick="removeField('projects')">-</button>
             </div>
         </div>
 
         <div class="section">
             <label>Research:</label>
+            <div class="controls">
+                <button type="button" onclick="addField('research')"><i class="fa-solid fa-square-plus"></i></button>
+                <button type="button" class="remove-button" onclick="removeField('research')"><i class="fa-solid fa-square-minus"></i></button>
+            </div>
             <div id="research">
                 <div><textarea name="research"></textarea></div>
-            </div>
-            <div class="controls">
-                <button type="button" onclick="addField('research')">+</button>
-                <button type="button" class="remove-button" onclick="removeField('research')">-</button>
-            </div>
+            </div> 
         </div>
 
         <div class="section">
             <label>Volunteering:</label>
+            <div class="controls">
+                <button type="button" onclick="addField('volunteering')"><i class="fa-solid fa-square-plus"></i></button>
+                <button type="button" class="remove-button" onclick="removeField('volunteering')"><i class="fa-solid fa-square-minus"></i></button>
+            </div>
             <div id="volunteering">
                 <div><textarea name="volunteering"></textarea></div>
-            </div>
-            <div class="controls">
-                <button type="button" onclick="addField('volunteering')">+</button>
-                <button type="button" class="remove-button" onclick="removeField('volunteering')">-</button>
             </div>
         </div>
 
         <div class="section">
             <label>Education:</label>
+            <div class="controls">
+                <button type="button" onclick="addField('education')"><i class="fa-solid fa-square-plus"></i></button>
+                <button type="button" class="remove-button" onclick="removeField('education')"><i class="fa-solid fa-square-minus"></i></button>
+            </div>
             <div id="education">
                 <div><textarea name="education"></textarea></div>
-            </div>
-            <div class="controls">
-                <button type="button" onclick="addField('education')">+</button>
-                <button type="button" class="remove-button" onclick="removeField('education')">-</button>
             </div>
         </div>
 
         <div class="section">
             <label>References:</label>
+            <div class="controls">
+                <button type="button" onclick="addField('references')"><i class="fa-solid fa-square-plus"></i></button>
+                <button type="button" class="remove-button" onclick="removeField('references')"><i class="fa-solid fa-square-minus"></i></button>
+            </div>
             <div id="references">
                 <div><textarea name="references"></textarea></div>
             </div>
-            <div class="controls">
-                <button type="button" onclick="addField('references')">+</button>
-                <button type="button" class="remove-button" onclick="removeField('references')">-</button>
-            </div>
         </div>
-
         <button type="submit">Submit</button>
     </form>
     <script src="../js/resume.js" defer></script>
