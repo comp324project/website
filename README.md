@@ -2,6 +2,19 @@
 
 See notes below for update messages.
 
+#### 📍 Adri, 02-26
+- Atlas Cluster for Applique created
+  - login with same credentials to MongoDB Atlas
+  - "Connect" --> driver: Node.js --> Copy connection string & change password --> add to local environment
+  - Then you should be able to test connection on your terminal
+- Historical data added
+  - Note: add unique id's instead of using URL
+
+Files added:
+- mongo.js
+- historicalDataImport.js
+- jobSchema.js
+
 #### 📍 Garrett, 02-24
 - updated signup page. should traverse to master-resume on signup and respective pages for login and recover account.
 - created style sheet for signup, but I called it login-style so I might need to fix that
