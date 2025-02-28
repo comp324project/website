@@ -1,5 +1,5 @@
 const User = require("../models/user");
-const Mongo = require("./mongo")
+const Mongo = require("../config/mongo")
 const bcrypt = require("bcrypt");
 
 // Example User Registration using User schema

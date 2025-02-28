@@ -4,7 +4,9 @@ const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const PORT = process.env.PORT;
-const routes = require("./public/routes/index")
+
+const {connectDB, disconnectDB} = require("./public/config/mongo"); // Import DB connection
+connectDB();
 
 // Middleware to parse json
 const bodyParser = require('body-parser');
@@ -15,9 +17,10 @@ app.use(express.static('public/html'));
 app.use('/css', express.static('public/css'));
 app.use('/js', express.static('public/js'));
 
-
+//Session Logic goes here
 
 //Register routes
+const routes = require("./public/routes/index");
 app.use("/api", routes);
 
 server.listen(PORT, () => {
