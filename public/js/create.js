@@ -1,4 +1,4 @@
-const sidebar = document.getElementById("sidebar")
+const sidebar = document.getElementById("sidebar");
 
 sidebar.addEventListener("mouseover", sidebarHover, false);
 sidebar.addEventListener("mouseout", sidebarHoverExit, false);

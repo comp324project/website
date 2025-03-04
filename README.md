@@ -2,6 +2,11 @@
 
 See notes below for update messages.
 
+#### 📍 Myles, 3/4
+- Basic user authentication is working. Login and Signup should be working if you have the db connection set up.
+- Added express-sessions for session/cookie management with Mongo (if we want).
+- Added Passport.js local authentication, we can implement login through Google/Github later
+
 #### 📍 Adri, 02-26
 - Atlas Cluster for Applique created
   - login with same credentials to MongoDB Atlas
