@@ -1,3 +1,10 @@
+
+// use jobSchema.js instead
+/*
+Note: Adrian used jobSchema.js 02/26 to import historical data. Use these column names instead.
+See jobSchema.js for details.
+*/
+
 const mongoose = require("mongoose");
 
 const JobPostingSchema = new mongoose.Schema({
