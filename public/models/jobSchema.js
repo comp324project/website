@@ -7,7 +7,9 @@ const jobSchema = new Schema({
   title: { type: String, required: true },
   description: { type: String },
   location: { type: String },
-  job_posting_url: { type: String, required: true, unique: true } // unique identifier
+  job_posting_url: { type: String, required: true, unique: true }, // unique identifier
+  date_posted: { type: String},
+  salary: {type: String}
 });
 
 const Job = mongoose.model('Job', jobSchema);

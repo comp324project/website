@@ -2,7 +2,16 @@
 
 See notes below for update messages.
 
-#### 📍 Myles, 3/4
+#### 📍 Adri, 03-22
+- Updated files to reference jobSchema.js instead of jobPosting.js
+  - Did this to match what's in the DB already with historical data
+- Added master resume columns to user schema (models/User.js)
+  - required: true omitted so that a user can sign up before inputting this information on a separate form
+- Added models/resumeSchema.js
+  - Schema for saving resume outputs
+  - includes FK relationships to both Users and Jobs
+
+#### 📍 Myles, 3-4
 - Basic user authentication is working. Login and Signup should be working if you have the db connection set up.
 - Added express-sessions for session/cookie management with Mongo (if we want).
 - Added Passport.js local authentication, we can implement login through Google/Github later

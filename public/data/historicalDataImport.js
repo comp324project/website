@@ -2,7 +2,7 @@ const fs = require('fs');
 const csv = require('csv-parser');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const Job = require('../config/jobSchema'); 
+const Job = require('../models/jobSchema'); 
 const path = require('path');
 const filePath = path.join(__dirname, 'jobs_cleaned_02-26.csv');
 
