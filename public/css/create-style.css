@@ -19,15 +19,22 @@ html{
 body{
     overflow: hidden;
     min-height:100vh;
+    width: fit-content;
     background-color: var(--base-color);
     color: var(--text-color);
-    display: grid;
-    grid-template-columns: auto 1fr;
-}
-container{
-    background-color: var(--input-color);
-    width: max(35%,600px);
     display: flex;
-    align-items: start;
+    flex-direction: row;
+    align-items: flex-start;
     justify-content: center;
+    
+}
+#container{
+    background-color: var(--input-color);
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+#description-input{
+    border: var(--accent-color);
+    color: var(--base-color);
 }

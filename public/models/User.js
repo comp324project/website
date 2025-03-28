@@ -4,7 +4,8 @@ const bcrypt = require('bcrypt');
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
+  password: { type: String, required: false },
+  googleId: {type: String, required: false, sparse:true, unique: true}
 }, { timestamps: true }); //This enables Mongo-side creation and update timestamps -> SUPER USEFUL);
 
 // Hash the password before saving the user
@@ -18,6 +19,11 @@ userSchema.pre('save', async function (next) {
 // Method to compare passwords
 userSchema.methods.comparePassword = async function (candidatePassword) {
   return await bcrypt.compare(candidatePassword, this.password);
+};
+
+//Method to determine if user is authenticated with OAuth
+userSchema.methods.isOAuthUser = function () {
+  return !!this.googleId && !this.password; // Returns true if the user has a googleId and no password set
 };
 
 module.exports = mongoose.model('User', userSchema);

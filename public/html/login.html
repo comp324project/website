@@ -3,10 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <Title>Resume Matcher</Title>
-        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="/css/login-style.css">
     </head>
     <body>
-        <script src = "../js/main.js"></script>
         <nav></nav>
         <main>
             <section id="login_box">
@@ -18,11 +18,17 @@
                     <form id="login-form">
                         <input type = "text" id="username" placeholder="Username" required>
                         <input type = "password" id="password" placeholder="Password" required>
-                        <div id = 'error-message'></div>
                         <div id = "login_box_button">
                             <button type="submit" id="login-button">LOGIN</button>
                         </div>
+                        <div id = 'error-message'></div>
                     </form>
+                    <div id="google-login">
+                        <p>Login with a Google account</p>
+                        <button id="google-login-button" onclick=loginWithGoogle()>
+                            <i class="fa-brands fa-google"></i>
+                        </button>
+                    </div>
                 </div>
                 <p>Don't have an account? </p>
                 <a href="/index.html">Sign up!<a>

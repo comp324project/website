@@ -6,16 +6,20 @@ exports.registerUser = async (req, res, next) => {
     const { username, email, password } = req.body;
 
     // Check if the username or email already exists
-    const existingUser = await User.findOne({ $or: [{ username }, { email }] });
+    const cursor = User.find({ $or: [{ username }, { email }] }).batchSize(10); // Create a cursor with a batch size of 10
+    const firstUser = await cursor.next; // Retrieve the first document from the cursor
+    
 
-    if (existingUser) {
+    if (firstUser) {
       return res.status(400).json({ error: 'Username or email already exists.' });
     }
 
     // Create and save the new user
+    console.log("newUser");
     const newUser = new User({ username, email, password });
     await newUser.save();
 
+    
     res.status(201).json({ message: 'User created successfully!' });
   } catch (error) {
     res.status(500).json({ error: 'Error registering user' });
@@ -32,6 +36,9 @@ exports.loginUser = (req, res, next) => {
     if (!user) {
       return res.status(401).json({ error: info.message });
     }
+    if (user.isOAuthUser()) {
+      return res.status(400).json({ message: 'Please log in with Google' });
+    }
 
     // Log the user in (establish a session)
     req.login(user, (err) => {
@@ -41,4 +48,22 @@ exports.loginUser = (req, res, next) => {
       return res.status(200).json({ message: 'Login successful!', user });
     });
   })(req, res, next);
+};
+
+exports.checkAuth = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    res.json({ authenticated: true, user: req.user });
+  } else {
+    res.json({ authenticated: false });
+  }
+};
+
+//Callback middleware for Google OAuth
+exports.googleCallback = (req, res, next) => {
+  passport.authenticate('google', { failureRedirect: '/login' })(req, res, next);
+};
+
+exports.googleCallbackSuccess = (req, res) => {
+  // Successful authentication, redirect to the user's profile page
+  res.redirect('/master-resume.html');
 };

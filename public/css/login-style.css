@@ -24,7 +24,7 @@ input {
     border-radius: 5px;
 }
 
-button {
+#login-button {
     background-color: gray;
     color: white;
     padding: 10px;
@@ -35,12 +35,12 @@ button {
 }
 
     button.enabled {
-        background-color: #28a745;
+        color: #28a745;
         cursor: pointer;
     }
 
         button.enabled:hover {
-            background-color: #218838;
+            color: #218838;
         }
 
 #error-message {

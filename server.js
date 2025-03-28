@@ -8,6 +8,14 @@ const passport = require('passport');
 const mongoStore = require('connect-mongo');
 const PORT = process.env.PORT;
 
+//Use CORS for deployment
+//const cors = require('cors');
+/* 
+app.use(cors({
+  origin: 'http://Applique.ai', // Allow requests from this domain
+  credentials: true, // Allow cookies and credentials
+}));
+*/
 
 require('./config/passport'); // Import Passport configuration
 const {connectDB, disconnectDB} = require("./config/mongo"); // Import DB connection
@@ -28,10 +36,13 @@ app.use(
         secret:'Myles is awesome',//change for production
         saveUninitialized: false, //Do not save unmodified data to session store
         resave: false,
-        store: mongoStore.create({ mongoUrl: process.env.MONGO_URI }),
-        cookie: {
+        store: mongoStore.create({ //Initialize our session mongo store
+            mongoUrl: process.env.MONGO_URI,
+            collectionName: 'sessions'
+        }),
+        cookie: { //Initialize cookies
             maxAge: 1000 * 60 * 60 * 3, //Miliseconds * Seconds * Minutes * Hours
-            secure: true 
+            //secure: true //Use if deployment is https
     }
 }))
 

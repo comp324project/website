@@ -1,22 +1,27 @@
-html{
-    font-family: Poppins, Segoe UI, sans-serif;
+* {
+    padding:0px;
+    margin:0px;
+    font-family: Helvetica, sans-serif;
     font-size: 13pt;
     color: var(--text-color);
-    text-align: center;
 }
-/* display:grid for sidebar feature*/
-body{
-    overflow: hidden;
-    min-height:100vh;
+:root{
+    --base-color:rgb(238, 234, 248);
+    --accent-color: #644bf3;
+    --text-color: #27213a;
+    --input-color:#e7e2fa;
+}
+    /*grid-template-columns: auto 1fr;*/
+#master-resume{
     background-color: var(--base-color);
     color: var(--text-color);
-    display: grid;
-    grid-template-columns: auto 1fr;
-}
-container{
-    background-color: var(--input-color);
-    width: max(35%,600px);
+    min-height:100vh;
+    width: 80vw;
     display: flex;
-    align-items: start;
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+#master-resume .section{
+
 }

@@ -30,7 +30,7 @@ function removeField(sectionId) {
 }
 
 // Function to handle form submission
-document.querySelector('form').addEventListener('submit', function(event) {
+document.getElementById('master-resume').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form from submitting the usual way
 
     let output = '';
