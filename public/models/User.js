@@ -5,8 +5,11 @@ const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  //GoogleID field for passport.js OAuth login
+  googleId: {type: String, required: false, sparse:true, unique: true}
   // masterResume containing arrays to store user input -- adrian added 03/22
   // not required bc input on separate form
+  /*
   masterResume: { 
     skills: [{ type: String}],
     experience: [{type: String}],
@@ -15,9 +18,7 @@ const userSchema = new mongoose.Schema({
     volunteering: [{type: String}],
     education: [{type: String}],
     references: [{type: String}]
-},
-  password: { type: String, required: false },
-  googleId: {type: String, required: false, sparse:true, unique: true}
+}, */
 }, { timestamps: true }); //This enables Mongo-side creation and update timestamps -> SUPER USEFUL);
 
 // comparePassword code: https://www.mongodb.com/blog/post/password-authentication-with-mongoose-part-1
@@ -40,7 +41,7 @@ userSchema.methods.isOAuthUser = function () {
   return !!this.googleId && !this.password; // Returns true if the user has a googleId and no password set
 };
 
-module.exports = mongoose.model('User', userSchema);
-
 // Prevent OverwriteModelError
-//const User = mongoose.models.User || mongoose.model("User", UserSchema);
+const User = mongoose.models.User || mongoose.model("User", userSchema);
+module.exports = User;
+

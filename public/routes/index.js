@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 // Import route modules
-const linkedinRoutes = require("./brightData");
+const brightDataRoutes = require("./brightData");
 const authRoutes = require("./auth");
 const userRoutes = require("./user");
 
@@ -11,7 +11,7 @@ const userRoutes = require("./user");
 const indexController=require("../controllers/index");
 
 // Use the routes and apply prefixes
-router.use("/api", linkedinRoutes);
+router.use("/api/brightdata/", brightDataRoutes);
 router.use("/auth",authRoutes);
 router.use('/db', userRoutes)
 

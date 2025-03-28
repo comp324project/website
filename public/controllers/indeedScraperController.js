@@ -1,46 +1,47 @@
-const fetch = require("node-fetch");
+const fetch = require('node-fetch')
 
-exports.triggerLinkedInScrape = async (req, res, next) => {
+exports.triggerIndeedScrape = async (req,res,next) => {
     try {
         const packageData = req.body; // Already a JS object
         const link = packageData[0].url
 
-        if (!link) {
-            return res.status(400).json({ error: "Missing URL in request body." });
+        if(!link){
+            res.status(500).json({error: "Invalid link to scrape from Indeed"});
+            return;
         }
 
         const payload = JSON.stringify([{ url: link }]); // JSONify payload
 
+        //Send Http POST request to API
         const response = await fetch(
-            "https://api.brightdata.com/datasets/v3/trigger?dataset_id=gd_lpfll7v5hcqtkxl6l&format=json&uncompressed_webhook=true&include_errors=true",
-            {
-                method: "POST",
-                headers: {
-                    "Authorization": "Bearer " + process.env.BRIGHTDATA_API_TOKEN,
-                    "Content-Type": "application/json",
-                },
-                body: payload,
-            }
-        );
-
+                    "https://api.brightdata.com/datasets/v3/trigger?dataset_id=gd_l4dx9j9sscpvs7no2&include_errors=true",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Authorization": "Bearer " + process.env.BRIGHTDATA_API_TOKEN,
+                            "Content-Type": "application/json",
+                        },
+                        body: payload,
+                    }
+                );
         const json = await response.json();
 
         if (!json.snapshot_id) {
             return res.status(500).json({ error: "No snapshot_id returned from API." });
         }
-
         res.locals.snapshot_id = json.snapshot_id; // Use res.locals to store temporary data
         console.log("Snapshot ID:", res.locals.snapshot_id);
 
         next(); // Call monitorProgress
-    } catch (error) {
-        console.error("Error triggering scrape:", error);
+    }
+    catch (error){
+        console.log("Error triggering Indeed scrape: "+error);
         res.status(500).json({ error: "Error triggering LinkedIn scrape." });
     }
-};
-
+}
 // Checks API scraping progress, passes control to getJobPost when scrape is complete
 exports.monitorProgress = async (req, res, next) => {
+    console.log("MONITORING INDEED PROGRESS...")
     const snapshot_id = res.locals.snapshot_id;
     if (typeof snapshot_id !== "string") {
         console.error("Invalid snapshot_id:", snapshot_id);
@@ -82,7 +83,6 @@ exports.monitorProgress = async (req, res, next) => {
         }
     }
 }
-
 // Get job post using snapshot_id with timeout/retry functions
 exports.getJobPost = async (req, res, next) => {
     const snapshot_id = res.locals.snapshot_id; // Get snapshot_id from previous middleware
@@ -108,7 +108,6 @@ exports.getJobPost = async (req, res, next) => {
             // Check if the response is valid JSON
             const text = await response.text();
             try {
-                //const data = JSON.parse(text); // Convert text to JSON
                 console.log("Scraped Data:", text);
                 return res.json(text); // Send data response
             } catch (jsonError) {
