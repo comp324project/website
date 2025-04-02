@@ -1,0 +1,92 @@
+{
+    "name": "Myles Kaufman",
+    "location": "Chicago, IL",
+    "contact": {
+      "email": "myleskaufman.mk@gmail.com",
+      "github": "Github",
+      "linkedin": "LinkedIn"
+    },
+    "objective": "Versatile and driven software engineer with a passion for problem-solving and continuous learning. Experienced in tackling diverse projects and adopting new technologies, from optimizing GPU performance to building real-time web applications. Thrives in dynamic environments that encourage collaboration, innovation, and growth.",
+    "experience": [
+      {
+        "role": "Software Engineering Intern",
+        "company": "Open Markets Initiative",
+        "duration": "October 2022 - Present",
+        "fields": [
+          "Leveraged DevOps practices, including automated cross-platform regression testing for the FIX (Financial Information eXchange) source generator, utilizing GitHub Actions.",
+          "Enhanced FIXML specification normalization by fixing document component and field extraction processes.",
+          "Developed Wireshark dissectors for binary exchange protocols, including models for extracting raw timestamps across multiple messages and converting them to UTC.",
+          "Collaborated directly with the Director of Engineering."
+        ]
+      }
+    ],
+    "skills": {
+      "languages": [
+        {"name": "Java", "experience": "4 yrs"},
+        {"name": "C#", "experience": "2 yrs"},
+        {"name": "Python", "experience": "2 yrs"},
+        {"name": "C++", "experience": "2 yrs"},
+        {"name": "Lua", "experience": "1 yr"},
+        {"name": "Javascript", "experience": "1 yr"}
+      ],
+      "technologies": [
+        {"name": "HTML", "experience": ""},
+        {"name": "CSS", "experience": ""},
+        {"name": "AWS EC2 and Route 53", "experience": ""},
+        {"name": "QuestDB", "experience": ""},
+        {"name": "Wireshark", "experience": ""},
+        {"name": "Android SDK", "experience": ""}
+        ]
+    },
+    "education": {
+      "degree": "Bachelor of Computer Science",
+      "institution": "Loyola University Chicago",
+      "graduation": "Expected May 2025"
+    },
+    "projects": [
+      {
+        "name": "Applique",
+        "type": "School Project",
+        "date": "May 2025",
+        "description": "Resume tailoring service with a design philosophy of non-constructive resume tailoring",
+        "details": [
+          "Desktop Web Application deployed with Node.JS and Express.",
+          "Implemented resume tailoring and keyword scoring functionality using Deepseek R-1 instance with Docker and NGINX.",
+          "Implemented system testing with MochaJS"
+        ]
+      },
+      {
+        "name": "Real-Time Chat Web Application",
+        "type": "Personal Project",
+        "date": "November 2024",
+        "details": [
+          "Frontend implemented with HTML/CSS/Javascript",
+          "Backend implemented with Node.js and Socket.io running on AWS EC-2 instance."
+        ]
+      },
+      {
+        "name": "C# Class Generator for Xml",
+        "type": "Personal Project",
+        "date": "January 2025",
+        "details": [
+          "Frontend implemented with HTML/CSS/Javascript",
+          "Backend implemented with Node.js and Socket.io running on AWS EC-2 instance."
+        ]
+      },
+      {
+        "name": "Ethereum GPU Mining",
+        "type": "Personal Project",
+        "date": "March 2021 - September 2022",
+        "details": [
+          "Optimized system-wide GPU performance by 39% to increase hash by 34%."
+        ]
+      }
+    ],
+    "activities": {
+      "clubs": [
+        "Don't Panic! CS: An organization for students to collaborate on projects and find resources.",
+        "Music Technology Club: Utilized digital audio workstations (DAWs) to mix original compositions and collaborate with student members."
+      ],
+      "hobbies": ["Musical performance", "cooking", "motorsports", "film", "painting"]
+    }
+  }

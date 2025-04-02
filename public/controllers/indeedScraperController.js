@@ -41,7 +41,6 @@ exports.triggerIndeedScrape = async (req,res,next) => {
 }
 // Checks API scraping progress, passes control to getJobPost when scrape is complete
 exports.monitorProgress = async (req, res, next) => {
-    console.log("MONITORING INDEED PROGRESS...")
     const snapshot_id = res.locals.snapshot_id;
     if (typeof snapshot_id !== "string") {
         console.error("Invalid snapshot_id:", snapshot_id);
@@ -63,7 +62,6 @@ exports.monitorProgress = async (req, res, next) => {
             console.log(data);
             try {
                 const status = data.status || "unknown"; // Safely get the status
-                console.log("Snapshot Status:", status);
                 if (status == "ready"){
                     next(); //call getJobPost
                     return;
