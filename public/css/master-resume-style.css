@@ -11,6 +11,79 @@
     --text-color: #27213a;
     --input-color:#e7e2fa;
 }
+
+/* Wrapper for the master resume */
+.container {
+    display: flex;
+    flex-direction: column; /* Stack sections vertically */
+    padding: 20px; /* Add padding around the container */
+}
+
+/* Media query for responsiveness */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row; /* Change to row direction on larger screens */
+        gap: 20px;
+    }
+}
+
+/* Input and Preview Sections */
+.input-section, .preview-section {
+    flex: 1; /* Allow both sections to grow equally */
+    padding: 20px; /* Padding inside each section */
+    background: white;
+    border-radius: 8px; /* Rounded corners for aesthetics */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Form Input Styles */
+.input-group{
+    margin-bottom: 15px; /* Space between input groups */
+}
+
+.input-group label {
+    font-weight: bold; /* Make labels bold */
+    display: block; /* Ensure labels are on their own line */
+    margin-bottom: 5px; /* Space between label and input */
+}
+
+textarea {
+    width: 100%; /* Full width of the container */
+    padding: 10px; /* Padding inside the textarea */
+    border-radius: 4px; /* Rounded corners */
+    border: 1px solid #ccc; /* Border color */
+    box-sizing: border-box; /* Ensure padding is included in width */
+    resize: vertical; /* Allow vertical resizing only */
+}
+
+/* Resume Preview Styles */
+.resume-preview {
+    padding: 10px; /* Padding inside the preview area */
+    border-radius: 4px; /* Rounded corners for the preview */
+    background: #f9f9f9; /* Light background for contrast */
+}
+
+.resume-preview h1 {
+    font-size: 2em; /* Larger font for the main title */
+    margin-bottom: 10px; /* Space below the title */
+    color: var(--accent-color); /* Use accent color for the title */
+}
+
+.summary {
+    font-style: italic; /* Italicize the summary for emphasis */
+    color: #555
+}
+
+.resume-section h3 {
+    font-size: 1.5em; /* Slightly smaller than the main title */
+    color: var(--accent-color); /* Use accent color for section headers */
+    margin-top: 10px; /* Space below the section header */
+}
+
+.resume-section p {
+    margin: 5px 0; /* Space above and below each paragraph */
+}
+
     /*grid-template-columns: auto 1fr;*/
 #master-resume{
     background-color: var(--base-color);
@@ -23,5 +96,5 @@
     justify-content: flex-start;
 }
 #master-resume .section{
-
+    margin-bottom: 20px;
 }

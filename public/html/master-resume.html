@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Input Form</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="/css/master-resume-style.css">
     <link rel="stylesheet" href="/css/sidebar-style.css">
+
+    <!-- React and Babel for JSX support -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>    
 </head>
 <body>
     <nav id="sidebar" class="close">
@@ -64,85 +70,49 @@
             </li>
         </ul>
     </nav>
+
     <h2>Resume Input Form</h2>
-    <form id="master-resume">
-        <div class="section">
-            <label>Skills:</label>
-            <div class="controls">
-                <button type="button" onclick="addField('skills')"><i class="fa-solid fa-square-plus"></i></button>
-                <button type="button" class="remove-button" onclick="removeField('skills')"><i class="fa-solid fa-square-minus"></i></button>
+    <div class="container">
+        <form id="master-resume">
+            <div class="section">
+                <label>Skillsssss</label>
+                <textarea id="skills" oninput="updatePreview()"></textarea>
             </div>
-            <div id="skills">
-                <div><textarea name="skills"></textarea></div>
+            <div class="section">
+                <label>Experience</label>
+                <textarea id="experience" oninput="updatePreview()"></textarea>
             </div>
-        </div>
-        <div class="section">
-            <label>Experience:</label>
-            <div class="controls">
-                <button type="button" onclick="addField('experience')"><i class="fa-solid fa-square-plus"></i></button>
-                <button type="button" class="remove-button" onclick="removeField('experience')"><i class="fa-solid fa-square-minus"></i></button>
+            <div class="section">
+                <label>Projects</label>
+                <textarea id="projects" oninput="updatePreview()"></textarea>
+            </div>   
+            <div class="section">
+                <label>Research</label>
+                <textarea id="research" oninput="updatePreview()"></textarea>    
             </div>
-            <div id="experience">
-                <div><textarea name="experience"></textarea></div>
+            <div class="section">
+                <label>Volunteering</label>
+                <textarea id="volunteering" oninput="updatePreview()"></textarea>
+            </div>     
+            <div class="section">
+                <label>Education</label>
+                <textarea id="education" oninput="updatePreview()"></textarea>
             </div>
-        </div>
+            <div class="section">
+                <label>Certifications</label>
+                <textarea id="certifications" oninput="updatePreview()"></textarea>
+            </div>
+            <div class="section">
+                <label>References</label>
+                <textarea id="references" oninput="updatePreview()"></textarea>
+            </div>
+        </form>
 
-        <div class="section">
-            <label>Projects:</label>
-            <div class="controls">
-                <button type="button" onclick="addField('projects')"><i class="fa-solid fa-square-plus"></i></button>
-                <button type="button" class="remove-button" onclick="removeField('projects')"><i class="fa-solid fa-square-minus"></i></button>
-            </div>
-            <div id="projects">
-                <div><textarea name="projects"></textarea></div>
-            </div>
-        </div>
+        <!-- React component will be rendered here -->
+         <div id="resume-preview"></div>
+    </div>
 
-        <div class="section">
-            <label>Research:</label>
-            <div class="controls">
-                <button type="button" onclick="addField('research')"><i class="fa-solid fa-square-plus"></i></button>
-                <button type="button" class="remove-button" onclick="removeField('research')"><i class="fa-solid fa-square-minus"></i></button>
-            </div>
-            <div id="research">
-                <div><textarea name="research"></textarea></div>
-            </div> 
-        </div>
-
-        <div class="section">
-            <label>Volunteering:</label>
-            <div class="controls">
-                <button type="button" onclick="addField('volunteering')"><i class="fa-solid fa-square-plus"></i></button>
-                <button type="button" class="remove-button" onclick="removeField('volunteering')"><i class="fa-solid fa-square-minus"></i></button>
-            </div>
-            <div id="volunteering">
-                <div><textarea name="volunteering"></textarea></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <label>Education:</label>
-            <div class="controls">
-                <button type="button" onclick="addField('education')"><i class="fa-solid fa-square-plus"></i></button>
-                <button type="button" class="remove-button" onclick="removeField('education')"><i class="fa-solid fa-square-minus"></i></button>
-            </div>
-            <div id="education">
-                <div><textarea name="education"></textarea></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <label>References:</label>
-            <div class="controls">
-                <button type="button" onclick="addField('references')"><i class="fa-solid fa-square-plus"></i></button>
-                <button type="button" class="remove-button" onclick="removeField('references')"><i class="fa-solid fa-square-minus"></i></button>
-            </div>
-            <div id="references">
-                <div><textarea name="references"></textarea></div>
-            </div>
-        </div>
-        <button type="submit">Submit</button>
-    </form>
-    <script src="../js/resume.js" defer></script>
+    <!-- Load react script -->
+    <script type="text/babel" src="../js/resume-builder.js"></script>
 </body>
 </html>
