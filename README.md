@@ -7,7 +7,7 @@ See notes below for update messages.
   - job-route.js: route for fetching job data
   - dataviz-style.css: css styling for data visualization page
 - Files modified:
-  - routes/index.js: added two lines for job route
+  - routes/index.js: added two lines for job route (UPDATE: NEED TO REMOVE. Discussion from zoom, this is unnecessary!)
 
 #### 📍 Adri, 03-22
 - Updated files to reference jobSchema.js instead of jobPosting.js
