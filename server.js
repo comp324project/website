@@ -54,10 +54,6 @@ app.use(passport.session());
 const routes = require("./public/routes/index");
 app.use(routes);
 
-// Route for job data.. added 04/04
-const jobRoutes = require('./public/routes/job-routes');  // import job routes
-app.use('/api/jobs', jobRoutes);  // mount the job routes at the /api/jobs endpoint
-
 
 server.listen(PORT, () => {
     console.log('Listening on port ' + PORT + '...');
