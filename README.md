@@ -4,7 +4,7 @@ See notes below for update messages.
 #### 📍 Adri, 04-04
 - Files added:
   - data-viz.html: page for displaying data visualizations. Using chart.js!
-  - job-route.js: route for fetching job data
+  - job-route.js: route for fetching job data (UPDATE: NEED TO REMOVE. Discussion from zoom, this is unnecessary!)
   - dataviz-style.css: css styling for data visualization page
 - Files modified:
   - routes/index.js: added two lines for job route (UPDATE: NEED TO REMOVE. Discussion from zoom, this is unnecessary!)
