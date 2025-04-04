@@ -6,6 +6,7 @@ const router = express.Router();
 const linkedinRoutes = require("./brightData");
 const authRoutes = require("./auth");
 const userRoutes = require("./user");
+const jobRoutes = require("./jobRoutes"); // added 04/04 for job data
 
 //Import index controller
 const indexController=require("../controllers/index");
@@ -14,6 +15,7 @@ const indexController=require("../controllers/index");
 router.use("/api", linkedinRoutes);
 router.use("/auth",authRoutes);
 router.use('/db', userRoutes)
+router.use("/api/jobs", jobRoutes);
 
 //Handles webpage entry routing
 router.get("/",indexController.index)
