@@ -7,18 +7,7 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   //GoogleID field for passport.js OAuth login
   googleId: {type: String, required: false, sparse:true, unique: true}
-  // masterResume containing arrays to store user input -- adrian added 03/22
-  // not required bc input on separate form
-  /*
-  masterResume: { 
-    skills: [{ type: String}],
-    experience: [{type: String}],
-    projects: [{type: String}],
-    research: [{type: String}],
-    volunteering: [{type: String}],
-    education: [{type: String}],
-    references: [{type: String}]
-}, */
+
 }, { timestamps: true }); //This enables Mongo-side creation and update timestamps -> SUPER USEFUL);
 
 // comparePassword code: https://www.mongodb.com/blog/post/password-authentication-with-mongoose-part-1
