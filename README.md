@@ -1,6 +1,13 @@
 ## Website Updates
 
 See notes below for update messages.
+#### 📍 Adri, 04-04
+- Files added:
+  - data-viz.html: page for displaying data visualizations. Using chart.js!
+  - job-route.js: route for fetching job data
+  - dataviz-style.css: css styling for data visualization page
+- Files modified:
+  - routes/index.js: added two lines for job route
 
 #### 📍 Adri, 03-22
 - Updated files to reference jobSchema.js instead of jobPosting.js
