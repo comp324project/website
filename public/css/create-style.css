@@ -4,7 +4,7 @@
 }
 :root{
     --base-color:rgb(238, 234, 248);
-    --accent-color: #644bf3;
+    --accent-color: #426dbd;
     --text-color: #27213a;
     --input-color:#e7e2fa;
 }
@@ -20,7 +20,7 @@ body{
     overflow: hidden;
     min-height:100vh;
     width: fit-content;
-    background-color: var(--base-color);
+    background-color: #c9d8ff; 
     color: var(--text-color);
     display: flex;
     flex-direction: row;
@@ -29,7 +29,7 @@ body{
     
 }
 #container{
-    background-color: var(--input-color);
+    background-color: #c9d8ff;
     width: fit-content;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
