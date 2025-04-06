@@ -1,7 +1,9 @@
 * {
     padding:0px;
     margin:0px;
+    font-family: "Lexend Deca", Helvetica, sans-serif;
 }
+
 :root{
     --base-color:rgb(238, 234, 248);
     --accent-color: #426dbd;
@@ -10,7 +12,7 @@
 }
 
 html{
-    font-family: Helvetica, Poppins, Segoe UI, sans-serif;
+    font-family: "Lexend Deca", Helvetica, sans-serif;
     font-size: 13pt;
     color: var(--text-color);
     text-align: center;

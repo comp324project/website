@@ -1,14 +1,16 @@
+
 body {
     width: 850px;
     margin: auto;
     background: #b0c3f5;
     font-size: 20px;
-    font-family: Helvetica;
+    font-family: "Lexend Deca", Helvetica;
     
 }
 
-p {  font-size: 1.0em;
-    font-style: italic;
+p { 
+    font-family: "Lexend Deca", Helvetica;
+    font-size: 1.0em;
 }
 
 #login-box {
