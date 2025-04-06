@@ -15,15 +15,16 @@
 }
 
 #sidebar {
-    display: flex;
-    flex-direction: column;
     box-sizing: border-box;
     height: 100vh;
     width: max(150px, 20vw);
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: repeat(8,1fr);
+    grid-row-gap: 2px;
     padding: 5px;
     background-color: var(--accent-color);
     border-right: 1px solid var(--accent-color);
-
     position: sticky;
     top: 0;
     transition: width 300ms ease-in-out;
@@ -54,6 +55,8 @@
 #sidebar ul li {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-content: center;
     padding: 5px 1em;
     gap: 5px;
     transition: background-color 400ms ease-in-out;
