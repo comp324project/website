@@ -68,7 +68,7 @@
         </ul>
     </nav>
     <h2>Resume Input Form</h2>
-    <form id="master-resume">
+    <div id="master-resume">
         <div class="section">
             <label>Skills:</label>
             <div class="controls">
@@ -79,15 +79,34 @@
                 <div><textarea name="skills"></textarea></div>
             </div>
         </div>
-        <div class="section">
-            <label>Experience:</label>
-            <div class="controls">
-                <button type="button" onclick="addField('experience')"><i class="fa-solid fa-square-plus"></i></button>
-                <button type="button" class="remove-button" onclick="removeField('experience')"><i class="fa-solid fa-square-minus"></i></button>
-            </div>
-            <div id="experience">
-                <div><textarea name="experience"></textarea></div>
-            </div>
+        <div class="section" id="experience">
+                <div class = "section-header">
+                    <label>Experience:</label>
+                    <button type="button" onclick="addField('experience')"><i class="fa-solid fa-square-plus"></i></button>
+                    <button type="button" class="remove-button" onclick="removeField('experience')"><i class="fa-solid fa-square-minus"></i></button>
+                </div>
+                <div id="experience-basic-info">
+                    <div class="name">
+                        <p>Company Name: </p>
+                        <input type="text" id="experience-company">
+                    </div>
+                    <div class = "title">
+                        <p>Position Title: </p>
+                        <input type="text" id="experience-title">
+                    </div>
+                    <div class = "date">
+                        <p>Date: </p>
+                        <input type="text" id="experience-date">
+                    </div>
+                </div>
+                <div class ="fields">
+                    <div class="controls">
+                        <p>Bullet Points: </p>
+                        <button type="button" onclick="addField('experience')"><i class="fa-solid fa-square-plus"></i></button>
+                        <button type="button" class="remove-button" onclick="removeField('experience')"><i class="fa-solid fa-square-minus"></i></button>
+                    </div>
+                    <input type="text" id="experience-field">
+                </div>
         </div>
 
         <div class="section">
@@ -145,7 +164,7 @@
             </div>
         </div>
         <button type="submit">Submit</button>
-    </form>
+    </div>
     <script src="../js/resume.js" defer></script>
 </body>
 </html>

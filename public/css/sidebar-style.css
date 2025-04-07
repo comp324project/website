@@ -6,6 +6,10 @@
     font-size: 13pt;
     color: var(--text-color);
 }
+body{
+    display: flex;
+    flex-direction: row;
+}
 
 :root {
     --base-color: rgb(238, 234, 248);
@@ -17,7 +21,7 @@
 #sidebar {
     box-sizing: border-box;
     height: 100vh;
-    width: max(150px, 20vw);
+    width: max(200px, 20vw);
     display: grid;
     grid-template-columns: 1;
     grid-template-rows: repeat(8,1fr);

@@ -4,6 +4,7 @@
     font-family: "Lexend Deca", Helvetica, sans-serif;
     font-size: 13pt;
     color: var(--text-color);
+    box-sizing: border-box;
 } /* side bar */
 
 :root{ 
@@ -24,5 +25,22 @@
     justify-content: flex-start;
 }
 #master-resume .section{
-
+    width: 80vw;
+    margin:5px;
+}
+.fields .controls{
+    display: flex;
+    flex-direction: row;
+    padding-right: 5px;
+}
+/* Experience section stylings */
+#experience .section-header{
+    background-color: var(--accent-color)
+}
+#experience #experience-basic-info{
+    display: flex;
+    flex-direction: row;
+}
+#master-resume button{
+    border: none;
 }
