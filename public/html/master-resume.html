@@ -12,63 +12,64 @@
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav id="sidebar" class="close">
-        <ul>
-            <li>
+    <nav class="close">
+        <ul id="sidebar">
+            <li id="sidebar-logo">
                 <div class = 'Logo'>Appliqué</div>
+                <i class="fa-solid fa-bars fa-lg" id="sidebar-toggle"></i>
             </li>
-            <li>
-                <div class = 'navItem'>
+            <li id="sidebar-home">
+                <div class = 'navItem' >
                     <a href="home.html">
-                        <i class="fa-solid fa-house fa-lg"></i>
                         <span class="text">Home</span>
+                        <i class="fa-solid fa-house fa-lg"></i>
                     </a>
                 </div>  
             </li>
-            <li class="active">
-                <div class = 'navItem'>
+            <li class="active" id="sidebar-create">
+                <div class = 'navItem' >
                     <a href="create.html">
-                        <i class="fa-solid fa-plus fa-lg"></i>
                         <span class="text">Create</span>
+                        <i class="fa-solid fa-plus fa-lg"></i>
                     </a>
                 </div>
             </li>
-            <li>
-                <div class="navItem">
+            <li id="sidebar-master-resume">
+                <div class="navItem" >
                     <a href="master-resume.html">
+                        <span class='text'>My Resume</span>
                         <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-                        <span class='text'>Dashboard</span>
                     </a>
                 </div>
             </li>
-            <li>
+            <li id="sidebar-analytics">
                 <div class="navItem">
                     <a href = "job-analytics.html">
+                        <span class='text'>Insights</span>
                         <i class="fa-solid fa-chart-column fa-lg"></i>
-                        <span class='text'>Analytics</span>
                     </a>
                 </div>
             </li>
-            <li>
+            <li id="sidebar-profile">
                 <div class="navItem">
                     <a href = "profile.html">
-                        <i class="fa-solid fa-user fa-lg"></i>
                         <span class='text'>Profile</span>
+                        <i class="fa-solid fa-user fa-lg"></i>
                     </a>
                 </div>
             </li>
-            <li>  
-                <div class="navItem">
+            <li id="sidebar-logout">  
+                <div class="navItem" >
                     <a href="index.html">
-                        <i class="fa-solid fa-arrow-right-from-bracket fa-lg fa-rotate-180"></i>
                         <span class="text">Log out</span>
+                        <i class="fa-solid fa-arrow-right-from-bracket fa-lg fa-rotate-180"></i>
                     </a>
                 </div>
             </li>
         </ul>
     </nav>
     <h2>Resume Input Form</h2>
-    <div id="master-resume">
+    <section id="master-resume">
         <div class="section">
             <label>Skills:</label>
             <div class="controls">
@@ -164,7 +165,7 @@
             </div>
         </div>
         <button type="submit">Submit</button>
-    </div>
+    </section>
     <script src="../js/resume.js" defer></script>
 </body>
 </html>

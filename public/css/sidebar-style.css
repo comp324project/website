@@ -34,7 +34,34 @@ body{
     transition: width 300ms ease-in-out;
     overflow: hidden;
 }
-
+#sidebar-logo{
+    grid-row: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+#sidebar-logo i{
+    justify-self: flex-end;
+}
+#sidebar-home{
+    grid-row: 2;
+}
+#sidebar-create{
+    grid-row: 3;
+}
+#sidebar-master-resume{
+    grid-row: 4;
+}
+#sidebar-analytics{
+    grid-row: 5;
+}
+#sidebar-profile{
+    grid-row: 6;
+}
+#sidebar-logout{
+    grid-row: 8;
+}
 #sidebar.close {
     width: min-content;
 }
@@ -47,61 +74,17 @@ body{
 #sidebar i,
 #sidebar a {
     color: var(--text-color);
-    margin-top: 3px;
+    margin: 3px;
     align-items: center;
     justify-content: left;
-}
-
-#sidebar ul {
-    list-style: none;
 }
 
 #sidebar ul li {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-content: center;
     padding: 5px 1em;
     gap: 5px;
     transition: background-color 400ms ease-in-out;
-}
-
-/* Top of navbar */
-#sidebar > ul > li:first-child {
-    flex-direction: row;
-    justify-content: space-between;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-#sidebar > ul > li:first-child .Logo {
-    font-weight: 700;
-    font-size: 1.25em;
-    justify-self: flex-start;
-    padding: 8px;
-}
-
-#sidebar-toggle {
-    justify-self: right;
-}
-
-/* Logout button placement */
-#sidebar > ul > li:last-child {
-    align-self: flex-end;
-}
-
-#sidebar ul li:hover {
-    background-color: var(--base-color);
-    cursor: pointer;
-}
-
-.navItem {
-    display: flex;
-    flex-direction: column;
-    margin: 3px;
-    background-color: var(--accent-color);
-}
-
-.navItem .text {
-    text-decoration: none;
 }
