@@ -26,9 +26,10 @@ const testKeywordExtractor = async () => {
         return_changed_case: true,
         remove_duplicates: false
       });
+      const filteredSkills = keywords.filter(word => knownSkills.includes(word));
 
       console.log(`\nJob Title: ${job.title}`);
-      console.log(`Extracted Keywords:`, keywords);
+      console.log(`Extracted filtered Keywords:`, filteredSkills);
     }
     
   } catch (error) {
