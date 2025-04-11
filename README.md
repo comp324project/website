@@ -1,6 +1,17 @@
 ## Website Updates
 
 See notes below for update messages.
+
+#### 📍 Adri, 04-11
+- Files added:
+  - keyword.js: uses keyword extractor from npm
+    - currently, it tests first 5 job descriptions in our database and pulls out skills
+- Additional notes:
+  - TO DO (keyword extracting task):
+    - predefined list of skills we want to extract
+    - extract same things from master resume inputs (we should input our own and start testing)
+    - scoring algorithm development (probably a simple weighted score with normalization to 100 for an easy viz)
+
 #### 📍 Alyssa, 04-11
 - Files updated:
   - master-resume.html: Reworked resume input interface with proper form handling, fixed add fields button, added a resume preview div that shows live     preview as user enter input.
