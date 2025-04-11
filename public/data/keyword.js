@@ -45,11 +45,7 @@ const testKeywordExtractor = async () => {
       const filteredSkills = keywords.filter(word => knownSkills.includes(word));
 
       console.log(`\nJob Title: ${job.title}`);
-<<<<<<< HEAD
       console.log(`Extracted Filtered Keywords:`, filteredSkills);
-=======
-      console.log(`Extracted filtered Keywords:`, filteredSkills);
->>>>>>> adrian-r
     }
     
   } catch (error) {
