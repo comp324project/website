@@ -1,6 +1,15 @@
 ## Website Updates
 
 See notes below for update messages.
+#### 📍 Alyssa, 04-11
+- Files updated:
+  - master-resume.html: Reworked resume input interface with proper form handling, fixed add fields button, added a resume preview div that shows live     preview as user enter input.
+  - resume.js: Added function to handle each add fields differently for proper format, added updaterResume() function to live updates the resume and       formats
+  - master-resume.css: Added css to handle the side-by-side implementation of thsi new update (**needs reviewing!**)
+- Additional notes:
+  - For both master-resume.html and resume.js, the submit buttun needs to be tested
+  - master-resume.css needs to be reviewed as new code were added and old code were not modified, override may happen
+
 #### 📍 Adri, 04-04
 - Files added:
   - data-viz.html: page for displaying data visualizations. Using chart.js!
