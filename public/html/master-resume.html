@@ -68,104 +68,130 @@
             </li>
         </ul>
     </nav>
-    <h2>Resume Input Form</h2>
-    <section id="master-resume">
-        <div class="section">
-            <label>Skills:</label>
-            <div class="controls">
-                <button type="button" onclick="addField('skills')"><i class="fa-solid fa-square-plus"></i></button>
-                <button type="button" class="remove-button" onclick="removeField('skills')"><i class="fa-solid fa-square-minus"></i></button>
-            </div>
-            <div id="skills">
-                <div><textarea name="skills"></textarea></div>
-            </div>
-        </div>
-        <div class="section" id="experience">
-                <div class = "section-header">
-                    <label>Experience:</label>
-                    <button type="button" onclick="addField('experience')"><i class="fa-solid fa-square-plus"></i></button>
-                    <button type="button" class="remove-button" onclick="removeField('experience')"><i class="fa-solid fa-square-minus"></i></button>
+    <div class="container">
+        <form class="input-section" onsubmit="return false">
+
+            <!-- This box holds the user's information -->
+            <div class="box">
+                <label>Name</label>
+                <input type="text" id="name"><br>
+                <label>Summary</label>
+                <textarea id="summary"></textarea>
+                <div class="row">
+                    <input type="text" id="email" placeholder="Email" class="long-input">
+                    <input type="text" id="phone" placeholder="Phone" class="short-input">
                 </div>
-                <div id="experience-basic-info">
-                    <div class="name">
-                        <p>Company Name: </p>
-                        <input type="text" id="experience-company">
+                <div class="row">
+                    <input type="text" id="website" placeholder="Website" class="long-input">
+                    <input type="text" id="location" placeholder="Location" class="short-input">
+                </div>                
+            </div>
+
+            <!-- This box holds the user's skills -- this could be updated to be better -->
+            <div class="box">
+                <h3>Skills</h3>
+                <textarea id="skill-input" placeholder="Enter your skills, separated by enter"></textarea> 
+                <ul id="skills-list"></ul>
+            </div>
+
+            <!-- This box holds the user's experience -->
+            <div class="box" id="experience-section">
+                <h3>Experience</h3>
+                <div class="experience-entry">
+                    <label>Company</label>
+                    <input type="text" class="exp-company">
+                    <div class="row">  
+                        <input type="text" class="exp-title long-input" placeholder="Job Title">
+                        <input type="text" class="exp-date short-input" placeholder="YYYY-MM">
                     </div>
-                    <div class = "title">
-                        <p>Position Title: </p>
-                        <input type="text" id="experience-title">
-                    </div>
-                    <div class = "date">
-                        <p>Date: </p>
-                        <input type="text" id="experience-date">
-                    </div>
+                    <label>Description</label>
+                    <textarea class="exp-description" placeholder="Describe your role and achievements"></textarea>
                 </div>
-                <div class ="fields">
-                    <div class="controls">
-                        <p>Bullet Points: </p>
-                        <button type="button" onclick="addField('experience')"><i class="fa-solid fa-square-plus"></i></button>
-                        <button type="button" class="remove-button" onclick="removeField('experience')"><i class="fa-solid fa-square-minus"></i></button>
-                    </div>
-                    <input type="text" id="experience-field">
+                <button type="button" id="add-experience" onclick="addExperience()">+</button>             
+            </div>
+
+            <!-- This box holds the user's education -->
+            <div class="box" id="education-section">
+                <h3>Education</h3>
+                <div class="education-entry">
+                  <div class="row">
+                    <input type="text" class="edu-school long-input" placeholder="School">
+                    <input type="text" class="edu-date short-input" placeholder="YYYY-MM">
+                  </div>
+                  <div class="row">
+                    <input type="text" class="edu-degree long-input" placeholder="Degree & Major">
+                    <input type="text" class="edu-gpa short-input" placeholder="GPA">
+                  </div>
+                  <label>Achievements</label>
+                  <textarea class="edu-achievements" placeholder="Awards, scholarships, dean's list... (optional)"></textarea>
                 </div>
-        </div>
+                <button type="button" id="add-education" onclick="addEducation()">+</button>
+              </div>
 
-        <div class="section">
-            <label>Projects:</label>
-            <div class="controls">
-                <button type="button" onclick="addField('projects')"><i class="fa-solid fa-square-plus"></i></button>
-                <button type="button" class="remove-button" onclick="removeField('projects')"><i class="fa-solid fa-square-minus"></i></button>
-            </div>
-            <div id="projects">
-                <div><textarea name="projects"></textarea></div>
-            </div>
-        </div>
+              <!-- This box holds the user's projects -->
+              <div class="box" id="projects-section">
+                <h3>Projects</h3>
+                <div class="project-entry">
+                  <div class="row">
+                    <input type="text" class="proj-title long-input" placeholder="Project Title">
+                    <input type="text" class="proj-date short-input" placeholder="YYYY-MM">
+                  </div>
+                  <textarea class="proj-description" placeholder="Describe the project here..."></textarea>
+                  <textarea class="proj-bullets" placeholder="Bullet points, enter each on a new line"></textarea>
+                </div>
+                <button type="button" id="add-project" onclick="addProject()">+</button>
+              </div>
 
-        <div class="section">
-            <label>Research:</label>
-            <div class="controls">
-                <button type="button" onclick="addField('research')"><i class="fa-solid fa-square-plus"></i></button>
-                <button type="button" class="remove-button" onclick="removeField('research')"><i class="fa-solid fa-square-minus"></i></button>
-            </div>
-            <div id="research">
-                <div><textarea name="research"></textarea></div>
-            </div> 
-        </div>
+              <!-- TODO: To add fields such as research and volunteering? -->
 
-        <div class="section">
-            <label>Volunteering:</label>
-            <div class="controls">
-                <button type="button" onclick="addField('volunteering')"><i class="fa-solid fa-square-plus"></i></button>
-                <button type="button" class="remove-button" onclick="removeField('volunteering')"><i class="fa-solid fa-square-minus"></i></button>
-            </div>
-            <div id="volunteering">
-                <div><textarea name="volunteering"></textarea></div>
-            </div>
-        </div>
+              <!-- This box holds the user's references -->
+              <div class="box" id="references-section">
+                <h3>References</h3>
+                <div class="reference-entry">
+                  <input type="text" class="ref-dept long-input" placeholder="Department">
+                  <input type="text" class="ref-name long-input" placeholder="Name">
+                  <div class="row">
+                    <input type="text" class="ref-email long-input" placeholder="Email">
+                    <input type="text" class="ref-phone short-input" placeholder="Phone">
+                  </div>
+                </div>
+                <button type="button" id="add-reference" onclick="addReference()">+</button>
+              </div>
+        </form>
 
-        <div class="section">
-            <label>Education:</label>
-            <div class="controls">
-                <button type="button" onclick="addField('education')"><i class="fa-solid fa-square-plus"></i></button>
-                <button type="button" class="remove-button" onclick="removeField('education')"><i class="fa-solid fa-square-minus"></i></button>
+        <!-- TODO: To be based on an actual resume template? -->
+        <div class="resume-preview" id="resume-preview">
+            <h2>Resume Preview</h2>
+            <p><strong>Name:</strong> <span id="res-name"></span></p>
+            <p><strong>Summary:</strong> <span id="res-summary"></span></p>
+            <p><strong>Email:</strong> <span id="res-email"></span> | 
+                <strong>Phone:</strong> <span id="res-phone"></span>
+            </p> 
+            <p><strong>Website:</strong> <span id="res-website"></span> | 
+                <strong>Location:</strong> <span id="res-location"></span>
+            </p> 
+            <div>
+                <h3>Skills</h3>
+                <ul id="res-skills"></ul>
             </div>
-            <div id="education">
-                <div><textarea name="education"></textarea></div>
+            <div>
+                <h3>Experience</h3>
+                <div id="res-experience"></div>
             </div>
-        </div>
-
-        <div class="section">
-            <label>References:</label>
-            <div class="controls">
-                <button type="button" onclick="addField('references')"><i class="fa-solid fa-square-plus"></i></button>
-                <button type="button" class="remove-button" onclick="removeField('references')"><i class="fa-solid fa-square-minus"></i></button>
+            <div>
+                <h3>Education</h3>
+                <div id="res-education"></div>
             </div>
-            <div id="references">
-                <div><textarea name="references"></textarea></div>
+            <div>
+                <h3>Projects</h3>
+                <div id="res-projects"></div>
             </div>
-        </div>
-        <button type="submit">Submit</button>
-    </section>
+            <div>
+                <h3>References</h3>
+                <div id="res-references"></div>
+            </div>
+        </div> <!-- End of resume-preview -->
+    </div> <!-- End of container -->
     <script src="../js/resume.js" defer></script>
 </body>
 </html>
