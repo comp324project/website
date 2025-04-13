@@ -1,4 +1,4 @@
-import OpenAI from "openai";
+const OpenAI = require("openai");
 
 const openai = new OpenAI({
     baseURL: 'https://api.deepseek.com',
@@ -6,7 +6,7 @@ const openai = new OpenAI({
 });
 
 //Function to call Deepseek API for tailoring
-exports.tailorResume() = async (req, res, next) => {
+exports.tailorResume = async (req, res, next) => {
     try{
         if (!req.user) return res.status(401).send('Not logged in');
         //Fetch user master resume json from user by ID
