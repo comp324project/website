@@ -45,3 +45,74 @@
 #master-resume button{
     border: none;
 }
+
+
+/* NEW CSS THATS USED FOR ALYSSA'S SIDE-BY-SIDE - NEEDS REVIEW!!!*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.input-section, .resume-preview {
+    width: 100%;
+}
+.resume-preview {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 20px;
+    min-height: 300px;
+    background: #f9f9f9;
+}
+.box {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+.row {
+    display: flex;
+    gap: 10px;
+}
+.row input {
+    flex: 1;
+}
+.row input.short-input {
+    flex: 0.25;
+}
+.row input.long-input {
+    flex: 0.75;
+}
+textarea, input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.add-btn {
+    margin-top: 10px;
+}
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .input-section {
+        width: 50%;
+        padding-right: 20px;
+    }
+    .resume-preview {
+        width: 50%;
+        margin-top: 0;
+    }
+}
