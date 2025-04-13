@@ -17,11 +17,13 @@ body{
     --text-color: #27213a;
     --input-color: #e7e2fa;
 }
-
+nav{
+    width: min-content;
+}
 #sidebar {
     box-sizing: border-box;
     height: 100vh;
-    width: max(200px, 20vw);
+    
     display: grid;
     grid-template-columns: 1;
     grid-template-rows: repeat(8,1fr);
@@ -69,6 +71,10 @@ body{
 #sidebar.close .Logo,
 #sidebar.close .text {
     display: none;
+}
+/* Sidebar button alignment on close */
+#sidebar.close .icon{
+    align-self: center;
 }
 
 #sidebar i,

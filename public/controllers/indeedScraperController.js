@@ -104,14 +104,10 @@ exports.getJobPost = async (req, res, next) => {
             );
 
             // Check if the response is valid JSON
-            const text = await response.text();
-            try {
-                console.log("Scraped Data:", text);
-                return res.json(text); // Send data response
-            } catch (jsonError) {
-                console.warn(`Attempt ${attempt}: Snapshot not ready yet. Retrying...`);
-            }
-
+            const data = await response.json();
+            //Output Validation eventually...
+            //console.log("Scraped Data:", data);
+            return res.json(data); // Send data response
         } catch (error) {
             console.error("Error fetching job post data:", error);
         }

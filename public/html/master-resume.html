@@ -12,64 +12,64 @@
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="close">
-        <ul id="sidebar">
+    <nav>
+        <ul id="sidebar" class = "close">
             <li id="sidebar-logo">
+                <span class="icon"><i class="fa-solid fa-bars fa-lg" id="sidebar-toggle"></i></span>
                 <div class = 'Logo'>Appliqué</div>
-                <i class="fa-solid fa-bars fa-lg" id="sidebar-toggle"></i>
             </li>
             <li id="sidebar-home">
                 <div class = 'navItem' >
                     <a href="home.html">
-                        <span class="text">Home</span>
                         <i class="fa-solid fa-house fa-lg"></i>
+                        <span class="text">Home</span>
                     </a>
                 </div>  
             </li>
             <li class="active" id="sidebar-create">
                 <div class = 'navItem' >
                     <a href="create.html">
-                        <span class="text">Create</span>
                         <i class="fa-solid fa-plus fa-lg"></i>
+                        <span class="text">Create</span>
                     </a>
                 </div>
             </li>
             <li id="sidebar-master-resume">
                 <div class="navItem" >
                     <a href="master-resume.html">
+                        <i class="fa-solid fa-rectangle-list fa-lg"></i>
                         <span class='text'>My Resume</span>
-                        <i class="fa-solid fa-magnifying-glass fa-lg"></i>
                     </a>
                 </div>
             </li>
             <li id="sidebar-analytics">
                 <div class="navItem">
                     <a href = "job-analytics.html">
-                        <span class='text'>Insights</span>
                         <i class="fa-solid fa-chart-column fa-lg"></i>
+                        <span class='text'>Insights</span>
                     </a>
                 </div>
             </li>
             <li id="sidebar-profile">
                 <div class="navItem">
                     <a href = "profile.html">
+                        <i class="fa-solid fa-user-tie fa-lg"></i>
                         <span class='text'>Profile</span>
-                        <i class="fa-solid fa-user fa-lg"></i>
                     </a>
                 </div>
             </li>
             <li id="sidebar-logout">  
                 <div class="navItem" >
                     <a href="index.html">
-                        <span class="text">Log out</span>
                         <i class="fa-solid fa-arrow-right-from-bracket fa-lg fa-rotate-180"></i>
+                        <span class="text">Log out</span>
                     </a>
                 </div>
             </li>
         </ul>
     </nav>
-    <h2>Resume Input Form</h2>
     <section id="master-resume">
+        <h2>Resume Input Form</h2>
         <div class="section">
             <label>Skills:</label>
             <div class="controls">
@@ -88,16 +88,13 @@
                 </div>
                 <div id="experience-basic-info">
                     <div class="name">
-                        <p>Company Name: </p>
-                        <input type="text" id="experience-company">
+                        <input type="text" placeholder="Company Name"id="experience-company">
                     </div>
                     <div class = "title">
-                        <p>Position Title: </p>
-                        <input type="text" id="experience-title">
+                        <input type="text" placeholder="Position Title"id="experience-title">
                     </div>
                     <div class = "date">
-                        <p>Date: </p>
-                        <input type="text" id="experience-date">
+                        <input type="text" placeholder="Date" id="experience-date">
                     </div>
                 </div>
                 <div class ="fields">

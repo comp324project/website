@@ -8,8 +8,7 @@ const resumeSchema = new Schema({
   // name of the output or resume
   template_name: { type: String, required: true },
   content: {type: Object}, //Stored as JSON, converted to BSON on backend
-  created_at: {type: Date, default: Date.now}
-});
+}, { timestamps: true });
 
 const Resume = mongoose.model('Resume', resumeSchema);
 
