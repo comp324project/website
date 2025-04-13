@@ -1,4 +1,4 @@
-const resumeSchema = import("../models/resumeSchema")
+//Check authentication first!!
 
 const sidebar = document.getElementById("sidebar");
 
@@ -20,9 +20,9 @@ urlInputButton.addEventListener('click', async () => {
         return;
     }
     if (isLinkedInUrl(input)) {
-        var data = await triggerLinkedInScrape(input);
-        console.log(data)
-        tailorResume(data)
+        var jobData = await triggerLinkedInScrape(input);
+        console.log(jobData)
+        //const resume = generateResume(jobData)
     } else if(isIndeedUrl(input)){
         triggerIndeedScrape(input);
     } else {
@@ -54,27 +54,15 @@ function isIndeedUrl(url){
     return false;
 }
 
-import OpenAI from "openai";
-
-const openai = new OpenAI({
-        baseURL: 'https://api.deepseek.com',
-        apiKey: process.env.DEEPSEEK_API_TOKEN
-});
-//Function to call Deepseek API for tailoring
-async function tailorResume(jobPost){
-    //Fetch user master resume json
-    const userResume = await resumeSchema.find({ user: userId });
-    //Call DeepSeek API
-    const completion = await openai.chat.completions.create({
-        messages: [{ role: "system", content: "Respond in JSON format. Your response should be a reduction of the master resume json." }],
-        messages: [{role: "user", content: "Please tailor this master resume json: "+JSON.stringify(userResume) +" to this job post json: "+JSON.stringify()+" by only removing elements from the master resume json."}],
-        model: "deepseek-chat",//Standard chat model
-        response_format: { type: "json_object" }, // Forces JSON output
-        temperature: "1.0" //Standard temperature for data analysis
-      });
-
-    console.log(completion.choices[0].message.content);
-}
+//Method to call backend Deepseek Resume Tailoring
+async function generateResume(jobPost) {
+    const response = await fetch('/api/deepseek/tailor', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ jobPost })
+    });
+    return await response.json();
+  }
 
 //Function to trigger a LinkedInScrape by BrightData API
 async function triggerLinkedInScrape(input){

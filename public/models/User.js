@@ -30,7 +30,7 @@ userSchema.methods.isOAuthUser = function () {
   return !!this.googleId && !this.password; // Returns true if the user has a googleId and no password set
 };
 
-// Prevent OverwriteModelError
+// Prevent OverwriteModelError from other model imports
 const User = mongoose.models.User || mongoose.model("User", userSchema);
 module.exports = User;
 

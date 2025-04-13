@@ -4,6 +4,7 @@ const router = express.Router();
 
 // Import route modules
 const brightDataRoutes = require("./brightData");
+const deepseekRoutes = require('./deepseek')
 const authRoutes = require("./auth");
 const userRoutes = require("./user");
 
@@ -11,7 +12,8 @@ const userRoutes = require("./user");
 const indexController=require("../controllers/index");
 
 // Use the routes and apply prefixes
-router.use("/api/brightdata/", brightDataRoutes);
+router.use("/api/brightdata", brightDataRoutes);
+router.use('/api/deepseek',deepseekRoutes)
 router.use("/auth",authRoutes);
 router.use('/db', userRoutes)
 
