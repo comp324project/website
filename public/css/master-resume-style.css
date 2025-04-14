@@ -70,11 +70,15 @@ body {
     margin-top: 20px;
     min-height: 300px;
     background: #f9f9f9;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    overflow-x: hidden;
 }
 .box {
-    border: 1px solid #ccc;
-    padding: 15px;
+    padding: 20px;
     margin-bottom: 20px;
+    font-weight: bold;
+    border: 1px solid #ccc;
 }
 .row {
     display: flex;
@@ -84,7 +88,7 @@ body {
     flex: 1;
 }
 .row input.short-input {
-    flex: 0.25;
+    flex: 0.40;
 }
 .row input.long-input {
     flex: 0.75;
