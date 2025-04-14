@@ -28,6 +28,7 @@ body{
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
+    padding-right: 10px;
     
 }
 #container{
