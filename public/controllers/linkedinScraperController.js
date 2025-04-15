@@ -130,25 +130,42 @@ exports.getJobPost = async (req, res, next) => {
 //Push job posting to DB after scrape
 exports.storeJobPost = async (req, res, next) => {
     const data = res.locals.job;
-    if (data) {
-        console.log(data);
-        // Create a new job posting document from the response
+    if (!data) {
+        console.error("Job posting data not found");
+        return res.status(500).send("Job posting data not found");
+    }
+
+    try {
+        // Attempt to create and save a new job posting
         const jobSchema = new JobSchema({
             job_posting_url: data.url,
             job_title: data.job_title,
             company_name: data.company_name,
             job_summary: data.job_summary,
-            location: data.job_location, // Changed from location to job_location
+            location: data.job_location,
             date_posted: data.job_posted_date,
         });
-      
-        // Save the job posting to the database
-        await jobSchema.save();
+
+        const savedJob = await jobSchema.save();
+        res.locals.jobId = savedJob._id; // Store new job ID
         next();
-        return;
-    }
-    else{
-        console.error("Job posting data not found")
-        return res.status(500);
+    } catch (error) {
+        if (error.code === 11000) { // Duplicate key error (E11000)
+            console.log("Duplicate job URL detected, fetching existing job ID...");
+            
+            // Find the existing job with the same URL
+            const existingJob = await JobSchema.findOne({ job_posting_url: data.url });
+            
+            if (existingJob) {
+                res.locals.jobId = existingJob._id; // Store existing job ID
+                next();
+            } else {
+                console.error("Duplicate key error but no existing job found:", error);
+                return res.status(500).send("Database conflict");
+            }
+        } else {
+            console.error("Error saving job posting:", error);
+            return res.status(500).send("Internal server error");
+        }
     }
 };
