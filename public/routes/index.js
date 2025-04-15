@@ -17,7 +17,19 @@ router.use('/api/deepseek',deepseekRoutes)
 router.use("/auth",authRoutes);
 router.use('/db', userRoutes)
 
-//Handles webpage entry routing
+//Page routing
 router.get("/",indexController.index)
+
+router.get("/create",indexController.create)
+
+router.get("/home",indexController.home)
+
+router.get("/resume",indexController.resume)
+
+router.get("/analytics",indexController.analytics)
+
+router.get("/profile",indexController.profile)
+
+router.get('/login',indexController.login)
 
 module.exports = router;

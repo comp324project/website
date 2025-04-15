@@ -65,5 +65,5 @@ exports.googleCallback = (req, res, next) => {
 
 exports.googleCallbackSuccess = (req, res) => {
   // Successful authentication, redirect to the user's profile page
-  res.redirect('/master-resume.html');
+  res.redirect('/home');
 };

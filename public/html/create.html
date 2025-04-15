@@ -12,54 +12,55 @@
     </head>
     <body>
         <!--This sidebar will be on every page besides login/signup/account recovery-->
-        <nav id="sidebar" class="close">
-            <ul>
-                <li>
+        <nav>
+            <ul id="sidebar" class = "close">
+                <li id="sidebar-logo">
+                    <span class="icon"><i class="fa-solid fa-bars fa-lg" id="sidebar-toggle"></i></span>
                     <div class = 'Logo'>Appliqué</div>
                 </li>
-                <li>
-                    <div class = 'navItem'>
-                        <a href="home.html">
+                <li id="sidebar-home">
+                    <div class = 'navItem' >
+                        <a href="/home">
                             <i class="fa-solid fa-house fa-lg"></i>
                             <span class="text">Home</span>
                         </a>
                     </div>  
                 </li>
-                <li class="active">
-                    <div class = 'navItem'>
-                        <a href="create.html">
+                <li class="active" id="sidebar-create">
+                    <div class = 'navItem' >
+                        <a href="/create">
                             <i class="fa-solid fa-plus fa-lg"></i>
                             <span class="text">Create</span>
                         </a>
                     </div>
                 </li>
-                <li>
-                    <div class="navItem">
-                        <a href="master-resume.html">
-                            <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-                            <span class='text'>Dashboard</span>
+                <li id="sidebar-master-resume">
+                    <div class="navItem" >
+                        <a href="/resume">
+                            <i class="fa-solid fa-rectangle-list fa-lg"></i>
+                            <span class='text'>My Resume</span>
                         </a>
                     </div>
                 </li>
-                <li>
+                <li id="sidebar-analytics">
                     <div class="navItem">
-                        <a href = "job-analytics.html">
+                        <a href = "/analytics">
                             <i class="fa-solid fa-chart-column fa-lg"></i>
-                            <span class='text'>Analytics</span>
+                            <span class='text'>Insights</span>
                         </a>
                     </div>
                 </li>
-                <li>
+                <li id="sidebar-profile">
                     <div class="navItem">
-                        <a href = "profile.html">
-                            <i class="fa-solid fa-user fa-lg"></i>
+                        <a href = "/profile">
+                            <i class="fa-solid fa-user-tie fa-lg"></i>
                             <span class='text'>Profile</span>
                         </a>
                     </div>
                 </li>
-                <li>  
-                    <div class="navItem">
-                        <a href="index.html">
+                <li id="sidebar-logout">  
+                    <div class="navItem" >
+                        <a href="/">
                             <i class="fa-solid fa-arrow-right-from-bracket fa-lg fa-rotate-180"></i>
                             <span class="text">Log out</span>
                         </a>
@@ -67,6 +68,7 @@
                 </li>
             </ul>
         </nav>
+        <!-- End of Navigation -->
         <main>
             <!--Actual create page-->
             <seciton id="container">
