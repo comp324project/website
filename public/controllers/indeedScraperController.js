@@ -1,4 +1,5 @@
-const fetch = require('node-fetch')
+const fetch = require('node-fetch');
+const JobSchema = require('../models/jobSchema');
 
 exports.triggerIndeedScrape = async (req,res,next) => {
     try {
@@ -30,12 +31,12 @@ exports.triggerIndeedScrape = async (req,res,next) => {
             return res.status(500).json({ error: "No snapshot_id returned from API." });
         }
         res.locals.snapshot_id = json.snapshot_id; // Use res.locals to store temporary data
-        console.log("Snapshot ID:", res.locals.snapshot_id);
+        //console.log("Snapshot ID:", res.locals.snapshot_id);
 
         next(); // Call monitorProgress
     }
     catch (error){
-        console.log("Error triggering Indeed scrape: "+error);
+        console.error("Error triggering Indeed scrape: "+error);
         res.status(500).json({ error: "Error triggering LinkedIn scrape." });
     }
 }
@@ -59,7 +60,7 @@ exports.monitorProgress = async (req, res, next) => {
                 }
             )
             const data = await response.json();
-            console.log(data);
+            //console.log(data);
             try {
                 const status = data.status || "unknown"; // Safely get the status
                 if (status == "ready"){
@@ -107,7 +108,8 @@ exports.getJobPost = async (req, res, next) => {
             const data = await response.json();
             //Output Validation eventually...
             //console.log("Scraped Data:", data);
-            return res.json(data); // Send data response
+            res.locals.data = data;
+            next(); // Send data response
         } catch (error) {
             console.error("Error fetching job post data:", error);
         }
@@ -119,4 +121,32 @@ exports.getJobPost = async (req, res, next) => {
         }
     }
 };
-//Maybe push to DB from here? 
+//Push job posting to DB after scrape
+exports.storeJobPost = async (req, res, next) => {
+    const data = res.locals.data;
+    if (data && data.length > 0) {
+        // Assuming the response has data in the structure you expect
+        const jobData = data[0];  // Assuming the first item in the response contains the job posting details
+        console.log(jobData);
+        // Create a new job posting document from the response
+        const jobSchema = new JobSchema({
+            url: url,
+            job_title: jobData.job_title,
+            company_name: jobData.company_name,
+            job_summary: jobData.job_summary,
+            location: jobData.location,
+            date_posted: jobData.date_posted,
+            salary: jobData.salary,
+        });
+      
+        // Save the job posting to the database
+        await jobSchema.save();
+        res.locals.job_id = jobSchema;
+        next();
+        return;
+    }
+    else{
+        console.error("Job posting data not found")
+        return res.status(500);
+    }
+};

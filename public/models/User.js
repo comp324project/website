@@ -5,6 +5,7 @@ const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  masterResume: {type: Object}, //Stored as JSON, converted to BSON on backend
   //GoogleID field for passport.js OAuth login
   googleId: {type: String, required: false, sparse:true, unique: true}
 

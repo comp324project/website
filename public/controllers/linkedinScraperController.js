@@ -1,4 +1,5 @@
 const fetch = require("node-fetch");
+const JobSchema = require('../models/jobSchema');
 
 exports.triggerLinkedInScrape = async (req, res, next) => {
     try {
@@ -30,7 +31,7 @@ exports.triggerLinkedInScrape = async (req, res, next) => {
         }
 
         res.locals.snapshot_id = json.snapshot_id; // Use res.locals to store temporary data
-        console.log("Snapshot ID:", res.locals.snapshot_id);
+        //console.log("Snapshot ID:", res.locals.snapshot_id);
 
         next(); // Call monitorProgress
     } catch (error) {
@@ -59,7 +60,7 @@ exports.monitorProgress = async (req, res, next) => {
                 }
             )
             const data = await response.json();
-            console.log(data);
+            //console.log(data);
             try {
                 const status = data.status || "unknown"; // Safely get the status
                 if (status == "ready"){
@@ -105,11 +106,12 @@ exports.getJobPost = async (req, res, next) => {
             );
 
             // Check if the response is valid JSON
-            const text = await response.text();
+            const data = await response.json();
             try {
-                //const data = JSON.parse(text); // Convert text to JSON
-                console.log("Scraped Data:", text);
-                return res.json(text); // Send data response
+                //console.log("Scraped Data:", data);
+                res.locals.job = data;
+                next();
+                return;
             } catch (jsonError) {
                 console.warn(`Attempt ${attempt}: Snapshot not ready yet. Retrying...`);
             }
@@ -125,4 +127,28 @@ exports.getJobPost = async (req, res, next) => {
         }
     }
 };
-//Maybe push to DB from here? 
+//Push job posting to DB after scrape
+exports.storeJobPost = async (req, res, next) => {
+    const data = res.locals.job;
+    if (data) {
+        console.log(data);
+        // Create a new job posting document from the response
+        const jobSchema = new JobSchema({
+            job_posting_url: data.url,
+            job_title: data.job_title,
+            company_name: data.company_name,
+            job_summary: data.job_summary,
+            location: data.job_location, // Changed from location to job_location
+            date_posted: data.job_posted_date,
+        });
+      
+        // Save the job posting to the database
+        await jobSchema.save();
+        next();
+        return;
+    }
+    else{
+        console.error("Job posting data not found")
+        return res.status(500);
+    }
+};

@@ -1,4 +1,6 @@
 const OpenAI = require("openai");
+const jobSchema = require("../models/jobSchema")
+const resumeSchema = require("../models/resumeSchema")
 
 const openai = new OpenAI({
     baseURL: 'https://api.deepseek.com',
@@ -9,10 +11,12 @@ const openai = new OpenAI({
 exports.tailorResume = async (req, res, next) => {
     try{
         if (!req.user) return res.status(401).send('Not logged in');
+        const jobId = res.locals.job_id;
+        const jobPost = await jobSchema.find({_id:jobId})
         //Fetch user master resume json from user by ID
-        const userResume = await resumeSchema.find({ user: req.user.id });
+        const userId = req.user.id;
+        const userResume = await resumeSchema.find({ user: userId});
         console.log("User resume: "+userResume);
-        const jobPost = req.jobPost.json();
         console.log("Job post: "+ jobPost);
         //Call DeepSeek API
         const completion = await openai.chat.completions.create({
@@ -22,9 +26,19 @@ exports.tailorResume = async (req, res, next) => {
             response_format: { type: "json_object" }, // Forces JSON output
             temperature: "1.0" //Standard temperature for data analysis
         });
-        const response = completion.choices[0].message.content.json()
+        const response = completion.choices[0].message.content.json();
         console.log(response);
         //Output validation here...
+        if (!content || !jobId || !userId){
+            return res.status(500).send('Internal error');
+        }
+        const resume = new resumeSchema({
+            job: jobId,
+            user: userId,
+            content: response
+        });
+        await resume.save();
+        console.log("SHIT WORKS!!!");
         return res.json(response);
     }
     catch(err){
