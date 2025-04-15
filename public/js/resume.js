@@ -43,7 +43,7 @@ function removeField(sectionId) {
     }
 }
 
-// New Function to adding fields starts here + live resume output
+// New Function to adding fields starts here + live resume output -- Alyssa's Code
 
 // Function to add experince entry
 function addExperience() {
