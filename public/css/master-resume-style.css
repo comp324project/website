@@ -1,5 +1,5 @@
 * {
-    padding:0px;
+    padding:20px;
     margin:0px;
     font-family: "Lexend Deca", Helvetica, sans-serif;
     font-size: 13pt;
@@ -17,12 +17,12 @@
 #master-resume{
     background-color: var(--base-color);
     color: var(--text-color);
-    min-height:100vh;
+    min-height: 100vh;
     min-width: min-content;
-    width: 80vw;
+    width: 1000vh;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: 1000vh;
     justify-content: flex-start;
 }
 #master-resume .section{
@@ -46,9 +46,6 @@
     border: none;
 }
 
-
-/* NEW CSS THATS USED FOR ALYSSA'S SIDE-BY-SIDE - NEEDS REVIEW!!!*/
-/* Alyssa's Code :) */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -86,18 +83,27 @@ body {
 }
 .row input {
     flex: 1;
+    resize: none;
+    overflow-x: auto; 
 }
 .row input.short-input {
     flex: 0.40;
+    resize: none;
+    overflow-x: auto; 
 }
 .row input.long-input {
     flex: 0.75;
+    resize: none;
+    overflow-x: auto; 
 }
 textarea, input[type="text"] {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
     box-sizing: border-box;
+    resize: none;           
+    overflow-y: auto;        
+    max-height: 120px;       
 }
 h3 {
     font-size: 1.2em;
@@ -107,7 +113,7 @@ h3 {
 .add-btn {
     margin-top: 10px;
 }
-@media (min-width: 768px) {
+@media (min-width: 786px) {
     .container {
         flex-direction: row;
         justify-content: space-between;
