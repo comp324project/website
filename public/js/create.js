@@ -1,16 +1,12 @@
 //Check authentication first!!
 
-const sidebar = document.getElementById("sidebar");
+//Sidebar functionality
+const sidebar = document.getElementById("sidebar")
+const sidebarToggle = document.getElementById('sidebar-toggle')
 
-sidebar.addEventListener("mouseover", sidebarHover, false);
-sidebar.addEventListener("mouseout", sidebarHoverExit, false);
-
-function sidebarHover(){
-    sidebar.classList.remove('close');
-}
-function sidebarHoverExit(){
-    sidebar.classList.add('close');
-}
+sidebarToggle.addEventListener('click', function(){
+    sidebar.classList.toggle('close')
+});
 
 ///BrightData API call
 const urlInputButton = document.getElementById("url-input-button");

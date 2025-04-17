@@ -72,129 +72,128 @@
     
     <section id="master-resume">
         <h2>Resume Input Form</h2>
-        <div class="container">
-            <form class="input-section" onsubmit="return false">
-    
-                <!-- This box holds the user's information -- Alyssa's Code :)-->
-                <div class="box">
-                    <label>Name</label>
-                    <input type="text" id="name"><br>
-                    <label>Summary</label>
-                    <textarea id="summary"></textarea>
-                    <div class="row">
-                        <input type="text" id="email" placeholder="Email" class="long-input">
-                        <input type="text" id="phone" placeholder="Phone" class="short-input">
-                    </div>
-                    <div class="row">
-                        <input type="text" id="website" placeholder="Website" class="long-input">
-                        <input type="text" id="location" placeholder="Location" class="short-input">
-                    </div>                
+        <div class="input-section">
+            <!-- This box holds the user's information -- Alyssa's Code :)-->
+            <div class="box">
+                <label>Name</label>
+                <input type="text" id="name"><br>
+                <label>Summary</label>
+                <textarea id="summary"></textarea>
+                <div class="row">
+                    <input type="text" id="email" placeholder="Email" class="long-input">
+                    <input type="text" id="phone" placeholder="Phone" class="short-input">
                 </div>
-    
-                <!-- This box holds the user's skills -- this could be updated to be better -->
-                <div class="box">
-                    <h3>Skills</h3>
-                    <textarea id="skill-input" placeholder="Enter your skills, separated by enter"></textarea> 
-                    <ul id="skills-list"></ul>
-                </div>
-    
-                <!-- This box holds the user's experience -->
-                <div class="box" id="experience-section">
-                    <h3>Experience</h3>
-                    <div class="experience-entry">
-                        <label>Company</label>
-                        <input type="text" class="exp-company">
-                        <div class="row">  
-                            <input type="text" class="exp-title long-input" placeholder="Job Title">
-                            <input type="text" class="exp-date short-input" placeholder="YYYY-MM">
-                        </div>
-                        <label>Description</label>
-                        <textarea class="exp-description" placeholder="Describe your role and achievements"></textarea>
+                <div class="row">
+                    <input type="text" id="website" placeholder="Website" class="long-input">
+                    <input type="text" id="location" placeholder="Location" class="short-input">
+                </div>                
+            </div>
+
+            <!-- This box holds the user's skills -- this could be updated to be better -->
+            <div class="box">
+                <h3>Skills</h3>
+                <textarea id="skill-input" placeholder="Enter your skills, separated by enter"></textarea> 
+                <ul id="skills-list"></ul>
+            </div>
+
+            <!-- This box holds the user's experience -->
+            <div class="box" id="experience-section">
+                <h3>Experience</h3>
+                <div class="experience-entry">
+                    <label>Company</label>
+                    <input type="text" class="exp-company">
+                    <div class="row">  
+                        <input type="text" class="exp-title long-input" placeholder="Job Title">
+                        <input type="text" class="exp-date short-input" placeholder="YYYY-MM">
                     </div>
-                    <button type="button" id="add-experience" onclick="addExperience()">+</button>             
+                    <label>Description</label>
+                    <textarea class="exp-description" placeholder="Describe your role and achievements"></textarea>
                 </div>
-                
-                <!-- This box holds the user's education -->
-                <div class="box" id="education-section">
-                    <h3>Education</h3>
-                    <div class="education-entry">
-                        <div class="row">
-                            <input type="text" class="edu-school long-input" placeholder="School">
-                            <input type="text" class="edu-date short-input" placeholder="YYYY-MM">
-                        </div>
-                        <div class="row">
-                            <input type="text" class="edu-degree long-input" placeholder="Degree & Major">
-                            <input type="text" class="edu-gpa short-input" placeholder="GPA">
-                        </div>
-                        <label>Achievements</label>
-                      <textarea class="edu-achievements" placeholder="Awards, scholarships, dean's list... (optional)"></textarea>
-                    </div>
-                    <button type="button" id="add-education" onclick="addEducation()">+</button>
-                </div>
-    
-                <!-- This box holds the user's projects -->
-                <div class="box" id="projects-section">
-                    <h3>Projects</h3>
-                    <div class="project-entry">
-                      <div class="row">
-                        <input type="text" class="proj-title long-input" placeholder="Project Title">
-                        <input type="text" class="proj-date short-input" placeholder="YYYY-MM">
-                      </div>
-                      <textarea class="proj-description" placeholder="Describe the project here..."></textarea>
-                      <textarea class="proj-bullets" placeholder="Bullet points, enter each on a new line"></textarea>
-                    </div>
-                    <button type="button" id="add-project" onclick="addProject()">+</button>
-                </div>
-    
-                <!-- This box holds the user's references -->
-                <div class="box" id="references-section">
-                    <h3>References</h3>
-                    <div class="reference-entry">
-                      <input type="text" class="ref-dept long-input" placeholder="Department">
-                      <input type="text" class="ref-name long-input" placeholder="Name">
-                      <div class="row">
-                        <input type="text" class="ref-email long-input" placeholder="Email">
-                        <input type="text" class="ref-phone short-input" placeholder="Phone">
-                      </div>
-                    </div>
-                    <button type="button" id="add-reference" onclick="addReference()">+</button>
-                  </div>
-            </form>
+                <button type="button" id="add-experience" onclick="addExperience()">+</button>             
+            </div>
             
+            <!-- This box holds the user's education -->
+            <div class="box" id="education-section">
+                <h3>Education</h3>
+                <div class="education-entry">
+                    <div class="row">
+                        <input type="text" class="edu-school long-input" placeholder="School">
+                        <input type="text" class="edu-date short-input" placeholder="YYYY-MM">
+                    </div>
+                    <div class="row">
+                        <input type="text" class="edu-degree long-input" placeholder="Degree & Major">
+                        <input type="text" class="edu-gpa short-input" placeholder="GPA">
+                    </div>
+                    <label>Achievements</label>
+                    <textarea class="edu-achievements" placeholder="Awards, scholarships, dean's list... (optional)"></textarea>
+                </div>
+                <button type="button" id="add-education" onclick="addEducation()">+</button>
+            </div>
+
+            <!-- This box holds the user's projects -->
+            <div class="box" id="projects-section">
+                <h3>Projects</h3>
+                <div class="project-entry">
+                    <div class="row">
+                    <input type="text" class="proj-title long-input" placeholder="Project Title">
+                    <input type="text" class="proj-date short-input" placeholder="YYYY-MM">
+                    </div>
+                    <textarea class="proj-description" placeholder="Describe the project here..."></textarea>
+                    <textarea class="proj-bullets" placeholder="Bullet points, enter each on a new line"></textarea>
+                </div>
+                <button type="button" id="add-project" onclick="addProject()">+</button>
+            </div>
+
+            <!-- This box holds the user's references -->
+            <div class="box" id="references-section">
+                <h3>References</h3>
+                <div class="reference-entry">
+                    <input type="text" class="ref-dept long-input" placeholder="Department">
+                    <input type="text" class="ref-name long-input" placeholder="Name">
+                    <div class="row">
+                    <input type="text" class="ref-email long-input" placeholder="Email">
+                    <input type="text" class="ref-phone short-input" placeholder="Phone">
+                    </div>
+                </div>
+                <button type="button" id="add-reference" onclick="addReference()">+</button>
+            </div>
+        </div>
     
             <!-- TODO: To be based on an actual resume template? -->
-            <div class="resume-preview" id="resume-preview">
-                <h2>Resume Preview</h2>
-                <p><strong>Name:</strong> <span id="res-name"></span></p>
-                <p><strong>Summary:</strong> <span id="res-summary"></span></p>
-                <p><strong>Email:</strong> <span id="res-email"></span> | 
-                    <strong>Phone:</strong> <span id="res-phone"></span>
-                </p> 
-                <p><strong>Website:</strong> <span id="res-website"></span> | 
-                    <strong>Location:</strong> <span id="res-location"></span>
-                </p> 
-                <div>
-                    <h3>Skills</h3>
-                    <ul id="res-skills"></ul>
-                </div>
-                <div>
-                    <h3>Experience</h3>
-                    <div id="res-experience"></div>
-                </div>
-                <div>
-                    <h3>Education</h3>
-                    <div id="res-education"></div>
-                </div>
-                <div>
-                    <h3>Projects</h3>
-                    <div id="res-projects"></div>
-                </div>
-                <div>
-                    <h3>References</h3>
-                    <div id="res-references"></div>
-                </div>
-            </div> <!-- End of resume-preview -->
-        </div> <!-- End of container -->
+        <div class="resume-preview" id="resume-preview">
+            <h2>Resume Preview</h2>
+            <p><strong>Name:</strong> <span id="res-name"></span></p>
+            <p><strong>Summary:</strong> <span id="res-summary"></span></p>
+            <p><strong>Email:</strong> <span id="res-email"></span> | 
+                <strong>Phone:</strong> <span id="res-phone"></span>
+            </p> 
+            <p><strong>Website:</strong> <span id="res-website"></span> | 
+                <strong>Location:</strong> <span id="res-location"></span>
+            </p> 
+            <div>
+                <h3>Skills</h3>
+                <ul id="res-skills"></ul>
+            </div>
+            <div>
+                <h3>Experience</h3>
+                <div id="res-experience"></div>
+            </div>
+            <div>
+                <h3>Education</h3>
+                <div id="res-education"></div>
+            </div>
+            <div>
+                <h3>Projects</h3>
+                <div id="res-projects"></div>
+            </div>
+            <div>
+                <h3>References</h3>
+                <div id="res-references"></div>
+            </div>
+            <div id="save-button-container">
+                <button id="save-button" onclick="saveResume()">SAVE</button>
+            </div>
+        </div> <!-- End of resume-preview -->
     </section>
     <script src="../js/resume.js" defer></script>
 </body>

@@ -342,6 +342,75 @@ document.querySelectorAll('input, textarea').forEach(el => {
 
 // NEW ENDS HERE
 
+//Function to save all resume information
+function saveResume() {
+    //Initialize JSON object
+    const resume = {
+        name: document.getElementById("name").value,
+        summary: document.getElementById("summary").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        website: document.getElementById("website").value,
+        location: document.getElementById("location").value,
+        skills: document.getElementById("skill-input").value,
+        experience: [],
+        education: [],
+        projects: [],
+        references: []
+    };
+
+    // Get experience entries
+    const expEntries = document.querySelectorAll(".experience-entry");
+    expEntries.forEach(entry => {
+        resume.experience.push({
+            company: entry.querySelector(".exp-company").value,
+            title: entry.querySelector(".exp-title").value,
+            date: entry.querySelector(".exp-date").value,
+            description: entry.querySelector(".exp-description").value
+        });
+    });
+
+    // Get education entries
+    const eduEntries = document.querySelectorAll(".education-entry");
+    eduEntries.forEach(entry => {
+        resume.education.push({
+            school: entry.querySelector(".edu-school").value,
+            date: entry.querySelector(".edu-date").value,
+            degree: entry.querySelector(".edu-degree").value,
+            gpa: entry.querySelector(".edu-gpa").value,
+            achievements: entry.querySelector(".edu-achievements").value
+        });
+    });
+
+    // Get projects
+    const projEntries = document.querySelectorAll(".project-entry");
+    projEntries.forEach(entry => {
+        const bullets = entry.querySelector(".proj-bullets").value.trim().split('\n').filter(line => line.trim() !== "");
+        resume.projects.push({
+            title: entry.querySelector(".proj-title").value,
+            date: entry.querySelector(".proj-date").value,
+            description: entry.querySelector(".proj-description").value,
+            bullets: bullets
+        });
+    });
+
+    // Get references
+    const refEntries = document.querySelectorAll(".reference-entry");
+    refEntries.forEach(entry => {
+        resume.references.push({
+            department: entry.querySelector(".ref-dept").value,
+            name: entry.querySelector(".ref-name").value,
+            email: entry.querySelector(".ref-email").value,
+            phone: entry.querySelector(".ref-phone").value
+        });
+    });
+
+    console.log("Saved Resume:", resume);
+    alert("Resume saved! Check console for JSON.");
+    return; // Optional: can be used elsewhere if needed
+}
+
+
 // DID NOT CHANGE ANYTHING BELOW -- might need to check this button in HTML
 
 // Function to handle form submission
