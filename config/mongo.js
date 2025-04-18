@@ -1,10 +1,12 @@
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env'),debug:true }); // Explicitly specify .env file path and enable debugging
 const mongoose = require('mongoose');
 
 // Connect to MongoDB
 const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI);
+        const uri = process.env.MONGO_URI;
+        await mongoose.connect(uri);
     } catch (error) {
         console.error('MongoDB Connection Error:', error.message);
     }

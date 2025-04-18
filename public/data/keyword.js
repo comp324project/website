@@ -13,7 +13,7 @@ TO DO:
 
 
 // keyword extractor test for historical data
-require('dotenv').config();
+// require('dotenv').config();
 const { connectDB, disconnectDB } = require('../../config/mongo');
 const Job = require('../models/jobSchema');
 const keyword_extractor = require('keyword-extractor');
