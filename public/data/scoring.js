@@ -48,6 +48,28 @@ const knownSkills = [
     "lua", "android", "sdk", "devops", "fixml", "cross-platform", "regression", "logistic", "wrangling", "wrangle", "census"
   ];
 
+
+
+// function that extracts all text from json. this simplifies the nested structures we need to get the keywords
+const extractTextFromResume = (resume) => {
+    let result = [];
+  
+    const extractStrings = (value) => {
+        // if a string, push it to the array
+      if (typeof value === 'string') {
+        result.push(value);
+      } else if (Array.isArray(value)) {
+        value.forEach(item => extractStrings(item));
+      } else if (typeof value === 'object' && value !== null) {
+        Object.values(value).forEach(val => extractStrings(val));
+      }
+    };
+  
+    extractStrings(resume);
+    return result.join(' ');
+  };
+  
+
   const extractSkills = (text) => {
     const keywords = keyword_extractor.extract(text, {
       language: "english",
@@ -68,12 +90,16 @@ const knownSkills = [
 
       // loop through jobs pulled from DB
       for (const job of jobs) {
-        console.log(`\n Job: ${job.job_title}`);
+        console.log(`\n Job: ${job.title}`);
         const jobSkills = extractSkills(job.description || '');
+        console.log(`Job Skills: ${jobSkills.join(', ')}`);
+
         
         // loop through resumes and score
         for (const resume of resumes) {
           const resumeSkills = extractSkills(resume.text);
+          console.log(`Resume Skills (${resume.name}): ${resumeSkills.join(', ')}`);
+
           const matchedSkills = resumeSkills.filter(skill => jobSkills.includes(skill));
           // version 1: just output score value as length... normalize to 100 later
           const score = matchedSkills.length;
@@ -93,3 +119,4 @@ const knownSkills = [
   };
   
   scoreResumesAgainstJobs();
+
