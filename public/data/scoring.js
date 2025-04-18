@@ -45,9 +45,40 @@ const knownSkills = [
     "penetration", "forensics", "intrusion", "risk", "seaborn", "plotly", "wireshark", "nmap", "splunk", "jupyter", "survival",
     "cox", "hazards", "modeling", "kaplan", "nonparametric", "parametric", "multivariate", "hierarchical", "clustering",
     "spatial", "temporal", "trend", "teaching", "tutoring", "chat", "chatbot", "socket.io", "shiny", "MochaJS", "Deepseek",
-    "lua", "android", "sdk", "devops", "fixml", "cross-platform", "regression", "logistic", "wrangling", "wrangle", "census"
+    "lua", "android", "sdk", "devops", "fixml", "cross-platform", "regression", "logistic", "wrangling", "wrangle", "census",
+    "manager", "lead", "team", "planning", "Microsoft", "photoshop", "creative", "illustrator", "powerbi", "tableau", "communication"
   ];
 
+// added depth: pin weights and key skills to types of jobs
+const jobTitleCategories = {
+    Analyst: {
+      keywords: ["analyst", "analysis", "sql", "excel", "finance", "modeling", "bi", "trend",
+        "business", "quantitative", "python", "r", "big", "data", "analytics", "visualization", "cleaning"],
+      weight: 4
+    },
+    Engineer: {
+      keywords: ["engineer", "developer", "software", "full-stack", "python", "javascript", "react", "mongodb", "database", "node", "cloud", "frontend",
+         "devops", "wireshark", "java", "c#", "c++", "lua", "aws", "express", "docker", "nginx"],
+      weight: 4
+    },
+    Manager: {
+      keywords: ["manager", "management", "strategy", "planning", "project", "team", "lead", "operations", "budget"],
+      weight: 1.5
+    },
+    General: {
+      keywords: ["communication", "problem", "learning", "project", "server", "etl", "teaching", "science", "research"],
+      weight: 1
+    },
+    Scientist: {
+        keywords: ["ML", "machine", "deep", "predictive", "model", "modeling", "statistics", "apache", "hadoop", "spark", "hive",
+            "analytics", "cleaning"],
+        weight: 4
+    },
+    Designer: {
+        keywords: ["designer", "ui", "ux", "photoshop", "creative", "illustrator", "design", "html", "css"],
+        weight: 4
+    }
+  };
 
 
 // function that extracts all text from json. this simplifies the nested structures we need to get the keywords
@@ -79,6 +110,21 @@ const extractTextFromResume = (resume) => {
     });
     return keywords.filter(word => knownSkills.includes(word));
   };
+
+  // see if job fits into predefined category
+    const getJobCategory = (jobTitle) => {
+        const lowerTitle = jobTitle.toLowerCase();
+        for (const category in jobTitleCategories) {
+        if (lowerTitle.includes(category.toLowerCase())) {
+            return category;
+        }
+        }
+        // best guess if theres no direct match
+        if (lowerTitle.includes("bi")) return "Analyst";
+        if (lowerTitle.includes("software") || lowerTitle.includes("developer")) return "Engineer";
+        if (lowerTitle.includes("senior") || lowerTitle.includes("lead")) return "Manager";
+        return "General";
+    };
   
   // async function for connecting to DB
   const scoreResumesAgainstJobs = async () => {
@@ -97,26 +143,43 @@ const extractTextFromResume = (resume) => {
         
         // loop through resumes and score
         for (const resume of resumes) {
-          const resumeSkills = extractSkills(resume.text);
-          console.log(`Resume Skills (${resume.name}): ${resumeSkills.join(', ')}`);
-
-          const matchedSkills = resumeSkills.filter(skill => jobSkills.includes(skill));
-          // version 1: just output score value as length... normalize to 100 later
-          const score = matchedSkills.length;
-  
-          console.log(`\n  Resume: ${resume.name}`);
-          console.log(`  Matched Skills: ${matchedSkills.join(', ')}`);
-          console.log(`  Match Score: ${score}`);
+            const resumeText = extractTextFromResume(resume); 
+            const resumeSkills = extractSkills(resumeText);
+          
+            console.log(`\n  Resume: ${resume.name}`);
+            console.log(`  Resume Skills: ${resumeSkills.join(', ')}`);
+          
+            const jobCategory = getJobCategory(job.title);
+            console.log(`  Job Category: ${jobCategory}`);
+          
+            let totalPossible = 0;
+            let actualScore = 0;
+          
+            for (const category in jobTitleCategories) {
+              const { keywords, weight } = jobTitleCategories[category];
+          
+              totalPossible += keywords.length * ((category === jobCategory) ? weight : 1);
+          
+              for (const skill of resumeSkills) {
+                if (keywords.includes(skill)) {
+                  actualScore += (category === jobCategory) ? weight : 1;
+                }
+              }
+            }
+          
+            const normalizedScore = Math.min(100, Math.round((actualScore / totalPossible) * 100));
+          
+            console.log(`  Actual Weighted Score: ${actualScore}`);
+            console.log(`  Normalized Match Score (out of 100): ${normalizedScore}`);
+          }
         }
+      } catch (err) {
+        console.error('Error scoring resumes:', err.message);
+      } finally {
+        await disconnectDB();
+        console.log('\nDisconnected from MongoDB.');
       }
-      // error handling
-    } catch (err) {
-      console.error('Error scoring resumes:', err.message);
-    } finally {
-      await disconnectDB();
-      console.log('\nDisconnected from MongoDB.');
-    }
-  };
+    };
   
   scoreResumesAgainstJobs();
 

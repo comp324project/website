@@ -64,7 +64,8 @@
         {"name": "MongoDB", "experience": "1 yr"},
         {"name": "PostgreSQL", "experience": "1 yr"},
         {"name": "SQL Server Management System", "experience": "1 yr"},
-        {"name": "PowerBI", "experience":"1 yr"}
+        {"name": "PowerBI", "experience":"1 yr"},
+        {"name": "hadoop", "experience":"1 yr"}
         ]
     },
     "education": {
