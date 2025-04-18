@@ -1,0 +1,122 @@
+{
+    "name": "Adrian Reuschel",
+    "location": "Chicago, IL",
+    "contact": {
+      "email": "adrianreuschelk@gmail.com",
+      "github": "Github",
+      "linkedin": "LinkedIn"
+    },
+    "objective": "Transform large, complex datasets into digestable figures and statistics.",
+    "experience": [
+      {
+        "role": "Data Analyst Intern",
+        "company": "Aon",
+        "duration": "June 2024 - August 2024",
+        "fields": [
+          "ETL of prescription claims data",
+          "Data wrangling and cleaning",
+          "Outlier analysis",
+          "R, python, SQL programming"
+        ]
+      },
+      {
+        "role": "Data Analytics Instructor",
+        "company": "MAPSCorps",
+        "duration": "June 2023 - August 2023",
+        "fields": [
+            "teaching data analytics to diverse group of students",
+            "cirriculum creation",
+            "data collection", 
+            "surveying",
+            "community based research"
+        ]
+      },
+      {
+        "role": "Data Intern",
+        "company": "Metopio",
+        "duration": "August 2024 - December 2024",
+        "fields": [
+            "ETL pipelines for community based health indicators",
+            "python data wrangling",
+            "data collection", 
+            "surveying"
+        ]
+      },
+      {
+        "role": "Research Assistant",
+        "company": "Loyola University Chicago Department of Mathematics and Statistics",
+        "duration": "August 2023 - Current",
+        "fields": [
+            "Use census data and crime from top 20 cities in the US",
+            "tidyverse",
+            "spatial analysis", 
+            "data visualization"
+        ]
+      }
+    ],
+    "skills": {
+      "languages": [
+        {"name": "R", "experience": "4 yrs"},
+        {"name": "SQL", "experience": "2 yrs"},
+        {"name": "Python", "experience": "3 yrs"}
+      ],
+      "technologies": [
+        {"name": "MongoDB", "experience": "1 yr"},
+        {"name": "PostgreSQL", "experience": "1 yr"},
+        {"name": "SQL Server Management System", "experience": "1 yr"},
+        {"name": "PowerBI", "experience":"1 yr"}
+        ]
+    },
+    "education": {
+      "degree": "Bachelor of Data Science",
+      "institution": "Loyola University Chicago",
+      "graduation": "Expected May 2025"
+    },
+    "projects": [
+      {
+        "name": "Applique",
+        "type": "School Project",
+        "date": "May 2025",
+        "description": "Resume tailoring service with a design philosophy of non-constructive resume tailoring",
+        "details": [
+          "Desktop Web Application deployed with Node.JS and Express.",
+          "Created database schema",
+          "ETL of historical job data"
+        ]
+      },
+      {
+        "name": "2048 Simulation",
+        "type": "Personal Project",
+        "date": "December 2024",
+        "details": [
+          "Simulated 2048 gameplay with different strategies in R",
+          "Altered random number generation and plotted outcomes of the game using Kaplan-Meyer survival curves"
+        ]
+      },
+      {
+        "name": "Multivariate Statistical Analysis of Income and Expenditure",
+        "type": "Personal Project",
+        "date": "January 2024",
+        "details": [
+          "Hierarchical clustering",
+          "Principal Components Analysis"
+        ]
+      },
+      {
+        "name": "Bark vs. Bite",
+        "type": "Personal Project",
+        "date": "August 2023 - December 2023",
+        "details": [
+          "Cox proportional hazards modeling on mountain pine beetle infestations in Canada",
+          "survival analysis"
+        ]
+      }
+    ],
+    "activities": {
+      "clubs": [
+        "Data Science Club",
+        "Math and Stats Club"
+      ],
+      "hobbies": ["Spanish language acquisition", "concerts", "volleyball", "sewing", "reading"]
+    }
+  }
