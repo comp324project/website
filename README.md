@@ -1,6 +1,13 @@
 ## Website Updates
 
 See notes below for update messages.
+#### 📍 Adri, 04-18
+- Files added:
+  - scoring.js: includes weights for certain job types and normalizes to 100
+- Additional notes:
+  - keyword.js: updated to include more keywords
+  - jobSchema.js: updated to match json and db fields
+
 
 #### 📍 Adri, 04-11
 - Files added:
