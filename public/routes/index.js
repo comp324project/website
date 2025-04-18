@@ -15,8 +15,7 @@ const indexController=require("../controllers/index");
 router.use("/api/brightdata", brightDataRoutes);
 router.use('/api/deepseek',deepseekRoutes)
 router.use("/auth",authRoutes);
-router.use('/db', userRoutes)
-
+router.use('/db', userRoutes);
 //Page routing
 router.get("/",indexController.index)
 

@@ -6,6 +6,103 @@ sidebarToggle.addEventListener('click', function(){
     sidebar.classList.toggle('close')
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    getResume(); // fetch resume from DB and the update page once DOM is loaded
+});
+
+//Function to load master resume from db
+function getResume(){
+    //fetch resume from db
+    fetch('/db/resume', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        //credentials: 'include'
+    })
+    .then(res => {
+        if (!res.ok) {
+            throw new Error("Failed to fetch resume.");
+        }
+        return res.json(); //This parses the response body as JSON
+    })
+    .then(data => {
+        //const resume = data.resume; // Access the actual resume data from the parsed JSON
+        console.log("Loaded resume:", data.masterResume);
+        updateResumeView(data.masterResume);//Use resume to fill out master resume fields
+    })
+    
+}
+function updateResumeView(resume){
+    // Basic info
+    document.getElementById("name").value = resume.name || "";
+    document.getElementById("summary").value = resume.summary || "";
+    document.getElementById("email").value = resume.email || "";
+    document.getElementById("phone").value = resume.phone || "";
+    document.getElementById("website").value = resume.website || "";
+    document.getElementById("location").value = resume.location || "";
+
+    // Skills
+    const skillsList = document.getElementById("skills-list");
+    skillsList.innerHTML = "";
+    if (Array.isArray(resume.skills)) {
+        resume.skills.forEach(skill => {
+            const li = document.createElement("li");
+            li.textContent = skill;
+            skillsList.appendChild(li);
+        });
+    }
+
+    // Experience
+    const experienceSection = document.getElementById("experience-section");
+    document.querySelectorAll(".experience-entry").forEach(e => e.remove()); // clear
+    resume.experience?.forEach(exp => {
+        addExperience();
+        const last = experienceSection.querySelectorAll(".experience-entry:last-of-type")[0];
+        last.querySelector(".exp-company").value = exp.company || "";
+        last.querySelector(".exp-title").value = exp.title || "";
+        last.querySelector(".exp-date").value = exp.date || "";
+        last.querySelector(".exp-description").value = exp.description || "";
+    });
+
+    // Education
+    const educationSection = document.getElementById("education-section");
+    document.querySelectorAll(".education-entry").forEach(e => e.remove());
+    resume.education?.forEach(edu => {
+        addEducation();
+        const last = educationSection.querySelectorAll(".education-entry:last-of-type")[0];
+        last.querySelector(".edu-school").value = edu.school || "";
+        last.querySelector(".edu-date").value = edu.date || "";
+        last.querySelector(".edu-degree").value = edu.degree || "";
+        last.querySelector(".edu-gpa").value = edu.gpa || "";
+        last.querySelector(".edu-achievements").value = edu.achievements || "";
+    });
+
+    // Projects
+    const projectsSection = document.getElementById("projects-section");
+    document.querySelectorAll(".project-entry").forEach(e => e.remove());
+    resume.projects?.forEach(proj => {
+        addProject();
+        const last = projectsSection.querySelectorAll(".project-entry:last-of-type")[0];
+        last.querySelector(".proj-title").value = proj.title || "";
+        last.querySelector(".proj-date").value = proj.date || "";
+        last.querySelector(".proj-description").value = proj.description || "";
+        last.querySelector(".proj-bullets").value = (proj.bullets || []).join("\n");
+    });
+
+    // References
+    const referencesSection = document.getElementById("references-section");
+    document.querySelectorAll(".reference-entry").forEach(e => e.remove());
+    resume.references?.forEach(ref => {
+        addReference();
+        const last = referencesSection.querySelectorAll(".reference-entry:last-of-type")[0];
+        last.querySelector(".ref-dept").value = ref.dept || "";
+        last.querySelector(".ref-name").value = ref.name || "";
+        last.querySelector(".ref-email").value = ref.email || "";
+        last.querySelector(".ref-phone").value = ref.phone || "";
+    });
+}
+
 // Function to add a new text field
 function addField(sectionId) {
     const section = document.getElementById(sectionId);
@@ -404,37 +501,27 @@ function saveResume() {
             phone: entry.querySelector(".ref-phone").value
         });
     });
-
-    console.log("Saved Resume:", resume);
-    alert("Resume saved! Check console for JSON.");
-    return; // Optional: can be used elsewhere if needed
-}
-
-
-// DID NOT CHANGE ANYTHING BELOW -- might need to check this button in HTML
-
-// Function to handle form submission
-document.getElementById('master-resume').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form from submitting the usual way
-
-    let output = '';
-
-    // Loop through each section and gather inputs
-    const sections = ['skills', 'experience', 'projects', 'research', 'volunteering', 'education', 'references'];
-    sections.forEach(sectionId => {
-        const section = document.getElementById(sectionId);
-        const inputs = section.querySelectorAll('textarea');
-        
-        if (inputs.length > 0) {
-            output += `${sectionId}:\n`;
-            inputs.forEach((input, index) => {
-                output += `${sectionId} ${index + 1}: ${input.value}\n`;
-            });
-            output += '\n'; // Add a newline after each section
-        }
+    //Update resume request to backend
+    fetch('/db/resume', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify(resume)
+    })
+    .then(res => {
+        if (!res.ok) throw new Error("Failed to update resume");
+        return res.json(); // parses the JSON body
+    })
+    .then(data => {
+        console.log("Resume saved:", data);
+        alert("Resume saved successfully!");
+    })
+    .catch(error => {
+        console.error("Error saving resume:", error);
+        alert("Failed to save resume.");
     });
-
-    // Output the result
-    alert(output);
-});
+    return;
+}
 

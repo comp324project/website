@@ -9,5 +9,8 @@ router.get("/users", userController.getUsers); // Get all users
 router.get("/users/:id", userController.getUserById); // Get a specific user by ID
 router.put("/users/:id", userController.updateUser); // Update a user by ID
 router.delete("/users/:id", userController.deleteUser); // Delete a user by ID
+router.post('/resume', userController.updateResume) //Updates a user's master resume
+router.get('/resume', userController.getResume)//Gets a user's master resume
+router.delete('/resume',userController.deleteResume)//Deletes a user's master resume
 
 module.exports = router;
