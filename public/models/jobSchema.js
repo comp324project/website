@@ -7,7 +7,7 @@ const { Schema } = mongoose;
 const jobSchema = new Schema({
   url: {type: String, unique: true}, //If a duplicate url is saved to db, it will throw a duplicate key error
   company_name: { type: String, required: true },
-  job_title: { type: String, required: true },
+  title: { type: String, required: true },
   description: { type: String },
   location: { type: String },
   job_posting_url: { type: String, required: true, unique: true }, // unique identifier

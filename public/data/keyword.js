@@ -69,6 +69,7 @@ const testKeywordExtractor = async () => {
     const jobs = await Job.find({}).limit(20);
 
     for (const job of jobs) {
+      console.log(job); // see whole object for debugging
       const description = job.description || '';
       
       const keywords = keyword_extractor.extract(description, {
@@ -80,6 +81,7 @@ const testKeywordExtractor = async () => {
       const filteredSkills = keywords.filter(word => knownSkills.includes(word));
 
       console.log(`\nJob Title: ${job.title}`);
+      console.log(job.title); 
       console.log(`Extracted Filtered Keywords:`, filteredSkills);
     }
     
