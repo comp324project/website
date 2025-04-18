@@ -19,4 +19,5 @@ const disconnectDB = async () => {
     }
 };
 
+// export modules
 module.exports = { connectDB, disconnectDB };
