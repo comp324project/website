@@ -75,6 +75,7 @@ const knownSkills = [
         for (const resume of resumes) {
           const resumeSkills = extractSkills(resume.text);
           const matchedSkills = resumeSkills.filter(skill => jobSkills.includes(skill));
+          // version 1: just output score value as length... normalize to 100 later
           const score = matchedSkills.length;
   
           console.log(`\n  Resume: ${resume.name}`);
