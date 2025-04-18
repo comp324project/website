@@ -53,7 +53,10 @@ const knownSkills = [
     "relational", "non-relational", "impala", "kafka", "hdfs", "s3", "cyber", "lifecycle", "consulting", "strategy",
     "teradata", "hardware", "pyspark", "agile", "genetic", "phd", "masters", "spss", "scrum", "libraries", "bayesian", "inference",
     "soap", "metrics", "tdd", "bi", "julia", "golang", "numpy", "incident", "response", "cryptography", "malware", "threat",
-    "penetration", "forensics", "intrusion", "risk", "seaborn", "plotly", "wireshark", "nmap", "splunk", "jupyter"
+    "penetration", "forensics", "intrusion", "risk", "seaborn", "plotly", "wireshark", "nmap", "splunk", "jupyter", "survival",
+    "cox", "hazards", "modeling", "kaplan", "nonparametric", "parametric", "multivariate", "hierarchical", "clustering",
+    "spatial", "temporal", "trend", "teaching", "tutoring", "chat", "chatbot", "socket.io", "shiny", "MochaJS", "Deepseek",
+    "lua", "android", "sdk", "devops", "fixml", "cross-platform", "regression", "logistic", "wrangling", "wrangle", "census"
   ];
 
 // connect to db, fetch jobs, loop and get keywords, log result to console
