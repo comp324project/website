@@ -134,14 +134,14 @@ exports.storeJobPost = async (req, res, next) => {
         console.error("Job posting data not found");
         return res.status(500).send("Job posting data not found");
     }
-
+    //console.log("Job to store:" ,data)
     try {
         // Attempt to create and save a new job posting
         const jobSchema = new JobSchema({
-            job_posting_url: data.url,
-            job_title: data.job_title,
+            url: data.url,
+            title: data.job_title,
             company_name: data.company_name,
-            job_summary: data.job_summary,
+            description: data.job_summary,
             location: data.job_location,
             date_posted: data.job_posted_date,
         });
@@ -154,11 +154,11 @@ exports.storeJobPost = async (req, res, next) => {
             console.log("Duplicate job URL detected, fetching existing job ID...");
             
             // Find the existing job with the same URL
-            const existingJob = await JobSchema.findOne({ job_posting_url: data.url });
+            const existingJob = await JobSchema.findOne({ url: data.url });
             
             if (existingJob) {
-                res.locals.jobId = existingJob._id; // Store existing job ID
-                next();
+                console.log("Existing job ID: ",existingJob._id)
+                return res.status(200).json({ jobId: existingJob._id }); // Send existing jobId as response
             } else {
                 console.error("Duplicate key error but no existing job found:", error);
                 return res.status(500).send("Database conflict");

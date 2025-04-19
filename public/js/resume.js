@@ -101,6 +101,7 @@ function updateResumeView(resume){
         last.querySelector(".ref-email").value = ref.email || "";
         last.querySelector(".ref-phone").value = ref.phone || "";
     });
+    updateResumePreview(); //Update preview after document elements are loaded
 }
 
 // Function to add a new text field
@@ -192,7 +193,7 @@ function addExperience() {
 
     // Attach update listener
     entry.querySelectorAll('input, textarea').forEach(el => {
-        el.addEventListener('input', updateResume);
+        el.addEventListener('input', updateResumePreview);
     });
 }
 
@@ -245,7 +246,7 @@ function addEducation() {
     document.getElementById('education-section').insertBefore(entry, document.getElementById('add-education'));
 
     entry.querySelectorAll('input, textarea').forEach(el => {
-        el.addEventListener('input', updateResume);
+        el.addEventListener('input', updateResumePreview);
     });
 }
 
@@ -285,7 +286,7 @@ function addProject() {
     document.getElementById('projects-section').insertBefore(entry, document.getElementById('add-project'));
 
     entry.querySelectorAll('input, textarea').forEach(el => {
-        el.addEventListener('input', updateResume);
+        el.addEventListener('input', updateResumePreview);
     });
 }
 
@@ -327,11 +328,11 @@ function addReference() {
     document.getElementById('references-section').insertBefore(entry, document.getElementById('add-reference'));
 
     entry.querySelectorAll('input').forEach(el => {
-        el.addEventListener('input', updateResume);
+        el.addEventListener('input', updateResumePreview);
     });
 }
 
-function updateResume() {
+function updateResumePreview() {
     document.getElementById("res-name").textContent = document.getElementById("name").value;
     document.getElementById("res-summary").textContent = document.getElementById("summary").value;
     document.getElementById("res-email").textContent = document.getElementById("email").value;
@@ -434,7 +435,7 @@ function updateResume() {
 
 // Live update resume preview
 document.querySelectorAll('input, textarea').forEach(el => {
-    el.addEventListener('input', updateResume);
+    el.addEventListener('input', updateResumePreview);
 });
 
 // NEW ENDS HERE

@@ -1,6 +1,8 @@
 const OpenAI = require("openai");
 const jobSchema = require("../models/jobSchema")
+const userSchema = require("../models/User")
 const resumeSchema = require("../models/resumeSchema")
+const mongoose = require('mongoose')
 
 const openai = new OpenAI({
     baseURL: 'https://api.deepseek.com',
@@ -10,10 +12,11 @@ const openai = new OpenAI({
 //Function to call Deepseek API for tailoring
 exports.tailorResume = async (req, res, next) => {
     try{
-        if (!req.user) return res.status(401).send('Not logged in');
-        const jobId = res.locals.jobId;
+        if (!req.user) {return res.status(401).send('Not logged in')};
+        const jobId = req.body.jobId;
         const userId = req.user.id;
-        
+        //console.log("Job ID: ",jobId);
+        //console.log("user ID: ",userId);
         //Validate IDs
         if (!jobId || !userId){
             return res.status(500).send('Internal error');
@@ -30,7 +33,8 @@ exports.tailorResume = async (req, res, next) => {
         }
 
         //Fetch user master resume json from user by ID
-        const userResume = await resumeSchema.findOne({ user: userId, isMaster: true });
+        const user = await userSchema.findOne({ _id: userId });
+        const userResume = user?.masterResume;
         if (!userResume) {
             return res.status(404).json({ 
                 error: 'Master resume not found',
@@ -38,8 +42,8 @@ exports.tailorResume = async (req, res, next) => {
             });
         }
 
-        console.log("User resume: "+userResume);
-        console.log("Job post: "+ jobPost);
+        //console.log("User resume: ",userResume);
+        //console.log("Job post: ",jobPost);
         
         //Call DeepSeek API
         const completion = await openai.chat.completions.create({
@@ -49,7 +53,7 @@ exports.tailorResume = async (req, res, next) => {
         ],
             model: "deepseek-chat",//Standard chat model
             response_format: { type: "json_object" }, // Forces JSON output
-            temperature: "1.0" //Standard temperature for data analysis
+            temperature: 1.0 //Standard temperature for data analysis
         });
         const response = JSON.parse(completion.choices[0].message.content);
         console.log(response);
@@ -63,11 +67,11 @@ exports.tailorResume = async (req, res, next) => {
             content: response
         });
         await resume.save();
-        console.log("SHIT WORKS!!!");
-        return res.json(response);
+        console.log("IT WORKS!!!");
+        return res.status(200).json(response);
     }
     catch(err){
-        console.error("Error fetching job post data:", error);
+        console.error("Error fetching job post data:", err);
         return res.status(500).json({ error: "Failed to tailor resume" });
     }
 }

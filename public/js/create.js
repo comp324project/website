@@ -16,8 +16,7 @@ urlInputButton.addEventListener('click', async () => {
         return;
     }
     if (isLinkedInUrl(input)) {
-        var jobData = await triggerLinkedInScrape(input);
-        console.log(jobData)
+        triggerLinkedInScrape(input);
         //const resume = generateResume(jobData)
     } else if(isIndeedUrl(input)){
         triggerIndeedScrape(input);
@@ -71,7 +70,11 @@ async function triggerLinkedInScrape(input){
             },
             body: JSON.stringify([{ url: input }])
         });
-        
+        const data = await response.json();
+        const jobId = data.jobId;
+        console.log("jobId: ",jobId);
+        triggerResumeTailor(jobId);
+        return;
     } catch (error) {
         console.error('Error calling BrightData API:', error);
     }
@@ -87,10 +90,27 @@ async function triggerIndeedScrape(input){
             },
             body: JSON.stringify([{ url: input }])
         });
-
         const data = await response.json();
+        const jobId = data.jobId;
+        triggerResumeTailor(jobId);
+        return;
         // Handle the response (e.g., display data)
     } catch (error) {
         console.error('Error calling BrightData API:', error);
+    }
+}
+async function triggerResumeTailor(jobId){
+    try{
+        const resume = await fetch('/api/deepseek/tailor', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ jobId: jobId })
+        });
+        const data =await response.json();
+        return;
+    } catch(err){
+        console.error("Error tailoring resume: ",err);
     }
 }
