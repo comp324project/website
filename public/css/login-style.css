@@ -64,7 +64,9 @@ input {
     width: 100vw;
     max-width: 1200px;
 }
-
+#about{
+    text-align: center;
+}
 #about-us {
     padding: 20px;
     display: flex;
