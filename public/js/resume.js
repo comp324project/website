@@ -90,6 +90,16 @@ function updateResumeView(resume){
         last.querySelector(".proj-bullets").value = (proj.bullets || []).join("\n");
     });
 
+    //Involvement
+    const involvementSection = document.getElementById("involvement-section");
+    document.querySelectorAll(".involvement-entry").forEach(e => e.remove()); // clear
+    resume.involvement?.forEach(involve => {
+        addInvolvement();
+        const last = involvementSection.querySelectorAll(".involvement-entry:last-of-type")[0];
+        last.querySelector(".involvement").value = involve.inv || "";
+        last.querySelector(".involvement-description").value = involve.invDesc || "";
+    });
+
     // References
     const referencesSection = document.getElementById("references-section");
     document.querySelectorAll(".reference-entry").forEach(e => e.remove());
@@ -290,6 +300,44 @@ function addProject() {
     });
 }
 
+//function to add involvement entry
+function addInvolvement() {
+    const entry = document.createElement('div');
+    entry.className = 'involvement-entry';
+
+    const hr = document.createElement('hr');
+
+    const inputInvolvement = document.createElement('input');
+    inputInvolvement.type = 'text';
+    inputInvolvement.className = 'involvement';
+    inputInvolvement.placeholder = 'Activity';
+
+    const row = document.createElement('div');
+    row.className = 'row';
+
+    const labelDesc = document.createElement('label');
+    labelDesc.textContent = 'Description';
+
+    const textareaDesc = document.createElement('textarea');
+    textareaDesc.placeholder = 'Describe your role...';
+    textareaDesc.className = 'involvement-description';
+
+    // Append everything to entry
+    entry.appendChild(hr);
+    entry.appendChild(inputInvolvement);
+    entry.appendChild(row);
+    entry.appendChild(labelDesc);
+    entry.appendChild(textareaDesc);
+
+    // Insert before "+" button
+    document.getElementById('involvement-section').insertBefore(entry, document.getElementById('add-involvement'));
+
+    // Attach update listener
+    entry.querySelectorAll('input, textarea').forEach(el => {
+        el.addEventListener('input', updateResumePreview);
+    });
+}
+
 // function to add reference entry
 function addReference() {
     const entry = document.createElement('div');
@@ -414,6 +462,20 @@ function updateResumePreview() {
         resProjects.appendChild(div);
     });
 
+    //Update involvement
+    const involvementEntries = document.querySelectorAll(".involvement-entry");
+    const resInvolvement = document.getElementById("res-involvement");
+    resInvolvement.innerHTML = "";
+    involvementEntries.forEach(entry => {
+        const inv = entry.querySelector(".involvement").value;
+        const invDesc = entry.querySelector(".involvement-description").value;
+
+        const div = document.createElement("div");
+        div.innerHTML = `<p><strong>${inv}</strong></p><p>${invDesc}</p>`;
+        resInvolvement.appendChild(div);
+    });
+
+
     // Update References
     const refEntries = document.querySelectorAll('.reference-entry');
     const resReferences = document.getElementById('res-references');
@@ -454,6 +516,7 @@ function saveResume() {
         experience: [],
         education: [],
         projects: [],
+        involvement: [],
         references: []
     };
 
@@ -492,6 +555,14 @@ function saveResume() {
         });
     });
 
+    // Get involvement entries
+    const involvementEntries = document.querySelectorAll(".involvement-entry");
+    involvementEntries.forEach(entry => {
+        resume.involvement.push({
+            inv: entry.querySelector(".involvement").value,
+            invDesc: entry.querySelector(".involvement-description").value
+        });
+    });
     // Get references
     const refEntries = document.querySelectorAll(".reference-entry");
     refEntries.forEach(entry => {

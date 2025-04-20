@@ -106,7 +106,7 @@
                         <input type="text" class="exp-date short-input" placeholder="YYYY-MM">
                     </div>
                     <label>Description</label>
-                    <textarea class="exp-description" placeholder="Describe your role and achievements"></textarea>
+                    <textarea class="exp-description" placeholder="Describe your role and achievements..."></textarea>
                 </div>
                 <button type="button" id="add-experience" onclick="addExperience()">+</button>             
             </div>
@@ -143,6 +143,16 @@
                 <button type="button" id="add-project" onclick="addProject()">+</button>
             </div>
 
+            <div class="box" id="involvement-section">
+                <h3>Involvement</h3>
+                <div class="involvement-entry">
+                    <input type="text" class="involvement" placeholder="Activity">
+                    <label>Description</label>
+                    <textarea class="involvement-description" placeholder="Describe your role or interest..."></textarea>
+                </div>
+                <button type="button" id="add-involvement" onclick="addInvolvement()">+</button>             
+            </div>
+
             <!-- This box holds the user's references -->
             <div class="box" id="references-section">
                 <h3>References</h3>
@@ -158,7 +168,6 @@
             </div>
         </div>
     
-            <!-- TODO: To be based on an actual resume template? -->
         <div class="resume-preview" id="resume-preview">
             <h2>Resume Preview</h2>
             <p><strong>Name:</strong> <span id="res-name"></span></p>
@@ -184,6 +193,10 @@
             <div>
                 <h3>Projects</h3>
                 <div id="res-projects"></div>
+            </div>
+            <div>
+                <h3>Involvement</h3>
+                <div id="res-involvement"></div>
             </div>
             <div>
                 <h3>References</h3>
