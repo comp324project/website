@@ -11,7 +11,9 @@ body {
     height: 100vh;
     background-color: #c9d8ff;
 }
-
+#signup_box {
+    padding-left: 110px;
+}
 #signup_box_input {
     background: white;
     padding: 20px;
@@ -52,4 +54,30 @@ input {
     color: red;
     font-size: 12px;
     margin-bottom: 10px;
+}
+
+#signup-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px;
+    padding: 100px;
+    width: 100vw;
+    max-width: 1200px;
+}
+
+#about-us {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#about-us h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+#about-us p {
+    margin-bottom: 15px;
+    line-height: 1.6;
 }
