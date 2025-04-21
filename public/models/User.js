@@ -4,7 +4,9 @@ const bcrypt = require('bcrypt');
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
+  password: { type: String, required: function(){ //Login bug
+    return !this.googleId;
+  }},
   masterResume: {type: Object}, //Stored as JSON, converted to BSON on backend
   //GoogleID field for passport.js OAuth login
   googleId: {type: String, required: false, sparse:true, unique: true}
