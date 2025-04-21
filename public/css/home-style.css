@@ -1,0 +1,43 @@
+* {
+    padding:0px;
+    margin:0px;
+    font-family: "Lexend Deca", Helvetica, sans-serif;
+}
+
+:root{
+    --base-color:rgb(238, 234, 248);
+    --accent-color: #426dbd;
+    --text-color: #27213a;
+    --input-color:#e7e2fa;
+}
+
+html{
+    font-family: "Lexend Deca", Helvetica, sans-serif;
+    font-size: 13pt;
+    color: var(--text-color);
+    text-align: center;
+}
+/* display:grid for sidebar feature*/
+body{
+    overflow: hidden;
+    min-height:100vh;
+    width: fit-content;
+    background-color: #c9d8ff; 
+    color: var(--text-color);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    padding-right: 10px;
+}
+main{
+    margin-left: 190px;
+    margin-top: 30px;
+}
+h1{
+    font-size: 60pt;
+}
+
+p{
+    font-size: 16pt;
+}
