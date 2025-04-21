@@ -29,6 +29,7 @@ app.use(bodyParser.json());
 app.use(express.static('public/html'));
 app.use('/css', express.static('public/css'));
 app.use('/js', express.static('public/js'));
+app.use('/image', express.static('public/image'));
 
 //Session initialization before route registration
 app.use(
