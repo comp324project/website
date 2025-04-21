@@ -4,12 +4,12 @@ body {
     margin: auto;
     background: #b0c3f5;
     font-size: 20px;
-    font-family: "Lexend Deca", Helvetica;
+    font-family: "Lexend Deca", Helvetica, sans-serif;
     
 }
 
 p { 
-    font-family: "Lexend Deca", Helvetica;
+    font-family: "Lexend Deca", Helvetica, sans-serif;
     font-size: 1.0em;
 }
 
