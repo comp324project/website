@@ -1,10 +1,3 @@
-//Sidebar functionality
-const sidebar = document.getElementById("sidebar")
-const sidebarToggle = document.getElementById('sidebar-toggle')
-
-sidebarToggle.addEventListener('click', function(){
-    sidebar.classList.toggle('close')
-});
 
 document.addEventListener("DOMContentLoaded", () => {
     getResume(); // fetch resume from DB and the update page once DOM is loaded

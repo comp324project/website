@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Stylesheet for Font Awesome Icons-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="../css/dataviz-style.css">
+        <link rel="stylesheet" href="../css/sidebar-style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!--This sidebar will be on every page besides login/signup/account recovery-->
+        <nav>
+            <ul id="sidebar" class = "close">
+                <li id="sidebar-logo">
+                    <span class="icon"><i class="fa-solid fa-bars fa-lg" id="sidebar-toggle"></i></span>
+                    <div class = 'Logo'>Appliqué</div>
+                </li>
+                <li id="sidebar-home">
+                    <div class = 'navItem' >
+                        <a href="/home">
+                            <i class="fa-solid fa-house fa-lg"></i>
+                            <span class="text">Home</span>
+                        </a>
+                    </div>  
+                </li>
+                <li class="active" id="sidebar-create">
+                    <div class = 'navItem' >
+                        <a href="/create">
+                            <i class="fa-solid fa-plus fa-lg"></i>
+                            <span class="text">Create</span>
+                        </a>
+                    </div>
+                </li>
+                <li id="sidebar-master-resume">
+                    <div class="navItem" >
+                        <a href="/resume">
+                            <i class="fa-solid fa-rectangle-list fa-lg"></i>
+                            <span class='text'>My Resume</span>
+                        </a>
+                    </div>
+                </li>
+                <li id="sidebar-analytics">
+                    <div class="navItem">
+                        <a href = "/analytics">
+                            <i class="fa-solid fa-chart-column fa-lg"></i>
+                            <span class='text'>Insights</span>
+                        </a>
+                    </div>
+                </li>
+                <li id="sidebar-profile">
+                    <div class="navItem">
+                        <a href = "/profile">
+                            <i class="fa-solid fa-user-tie fa-lg"></i>
+                            <span class='text'>Profile</span>
+                        </a>
+                    </div>
+                </li>
+                <li id="sidebar-logout">  
+                    <div class="navItem" >
+                        <a href="/login">
+                            <i class="fa-solid fa-arrow-right-from-bracket fa-lg fa-rotate-180"></i>
+                            <span class="text">Log out</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <h1>Future Consideration</h1>
+            <p>Page for profile information</p>
+        </main>
+        <script src="../js/sidebar.js"></script>
+    </body>
+</html>    
