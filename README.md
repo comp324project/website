@@ -1,6 +1,13 @@
 ## Website Updates
 
 See notes below for update messages.
+#### 📍 Alyssa, 04-21
+- Files updated:
+  - master-resume-style.css: Update preview format to mimic actual resume, made it mobile friendly
+  - master-resume.html: Fix to allow css to work
+- Additional notes:
+  - Master resume input and preview is now mobile friendly
+    
 #### 📍 Adri, 04-18
 - Files added:
   - scoring.js: includes weights for certain job types and normalizes to 100
