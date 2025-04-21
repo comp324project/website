@@ -55,7 +55,7 @@ exports.tailorResume = async (req, res, next) => {
             response_format: { type: "json_object" }, // Forces JSON output
             temperature: 1.0 //Standard temperature for data analysis
         });
-        const response = JSON.parse(completion.choices[0].message.content);
+        const response = completion.choices[0].message.content;
         console.log(response);
         //Output validation here...
         if (!response){

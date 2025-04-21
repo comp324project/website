@@ -34,6 +34,7 @@ exports.triggerLinkedInScrape = async (req, res, next) => {
         //console.log("Snapshot ID:", res.locals.snapshot_id);
 
         next(); // Call monitorProgress
+        return;
     } catch (error) {
         console.error("Error triggering scrape:", error);
         res.status(500).json({ error: "Error triggering LinkedIn scrape." });
@@ -138,7 +139,7 @@ exports.storeJobPost = async (req, res, next) => {
     try {
         // Attempt to create and save a new job posting
         const jobSchema = new JobSchema({
-            url: data.url,
+            job_posting_url: data.url,
             title: data.job_title,
             company_name: data.company_name,
             description: data.job_summary,
@@ -152,9 +153,9 @@ exports.storeJobPost = async (req, res, next) => {
     } catch (error) {
         if (error.code === 11000) { // Duplicate key error (E11000)
             console.log("Duplicate job URL detected, fetching existing job ID...");
-            
+            console.log("Duplicate URL: ",data.url)
             // Find the existing job with the same URL
-            const existingJob = await JobSchema.findOne({ url: data.url });
+            const existingJob = await JobSchema.findOne({ job_posting_url: data.url });
             
             if (existingJob) {
                 console.log("Existing job ID: ",existingJob._id)
